@@ -31,5 +31,12 @@ export default StyleSheet.create({
         fontSize: 17,
         textAlign: 'center',
         margin: 10,
+    },
+    loading: {
+        fontWeight: 'bold',
+        fontSize: 23,
+        textAlign: 'center',
+        margin: 10,
+        paddingTop: 250
     }
 });

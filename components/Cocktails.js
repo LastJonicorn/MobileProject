@@ -13,7 +13,7 @@ export default function About () {
     const fetchCocktailHandler = useCallback(() => {
         setLoading(true);
         axios.get(URL).then(res=> {
-            console.log(res.data);
+            //console.log(res.data);
             setData(res.data.drinks)
         })
         .catch(e=>console.log(e))
@@ -25,15 +25,11 @@ export default function About () {
     },[fetchCocktailHandler]);
 
     if (loading) {
-        return <View><Text>Loading</Text></View>
+        return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
 
-/*     for(let i=1; i<16; i++){
-        const Ingredient = document.createElement('ons-list-item');
-        Ingredient.innerHTML = data.drinks[0] [`strIngredient${i}`];
-    
-        drinkSection.appendChild(Ingredient);
-    }; */
+    console.log(data[0]);
+    console.log(data[0].strIngredient1);
 
     return (
         <SafeAreaView style={styles.container}>
