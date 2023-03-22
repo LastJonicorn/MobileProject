@@ -44,6 +44,13 @@ export default StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
+    ingredients: {
+        fontSize: 17,
+        textAlign: 'center',
+        margin: 10,
+        paddingTop:10,
+        textDecorationLine:'underline'
+    },
     loading: {
         fontWeight: 'bold',
         fontSize: 23,

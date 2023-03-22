@@ -164,6 +164,7 @@ export default function About () {
                         <Text style={styles.title}>{cocktail.strDrink}</Text>
                         <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
                         <Text style={styles.text}>{cocktail.strInstructions}</Text>
+                        <Text style={styles.ingredients}>Ingredients</Text>
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{paddingLeft: 15}}>
                                 {Ingredients.map((Ingredient) => {
