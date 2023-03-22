@@ -28,44 +28,134 @@ export default function About () {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
 
-    console.log(data[0].strIngredient1);
-
-/*     const Ingredients = [
-        data[0].strIngredient1,
-        data[0].strIngredient2,
-        data[0].strIngredient3,
-        data[0].strIngredient4,
-        data[0].strIngredient5,
-        data[0].strIngredient6,
-        data[0].strIngredient7,
-        data[0].strIngredient8,
-        data[0].strIngredient9,
-        data[0].strIngredient10,
-        data[0].strIngredient11,
-        data[0].strIngredient12,
-        data[0].strIngredient13,
-        data[0].strIngredient14,
-        data[0].strIngredient15,
+    const Ingredients = [
+        {
+        name:data[0]?.strIngredient1,
+        id:1
+        },
+        {
+        name:data[0]?.strIngredient2,
+        id:2
+        },        
+        {
+        name:data[0]?.strIngredient3,
+        id:3
+        },
+        {
+        name:data[0]?.strIngredient4,
+        id:4
+        },        
+        {
+        name:data[0]?.strIngredient5,
+        id:5
+        },        
+        {
+        name:data[0]?.strIngredient6,
+        id:6
+        },        
+        {
+        name:data[0]?.strIngredient7,
+        id:7
+        },
+        {
+        name:data[0]?.strIngredient8,
+        id:8
+        },
+        {
+        name:data[0]?.strIngredient9,
+        id:9
+        },        
+        {
+        name:data[0]?.strIngredient10,
+        id:10
+        },
+        {
+        name:data[0]?.strIngredient11,
+        id:11
+        },        
+        {
+        name:data[0]?.strIngredient12,
+        id:12
+        },        
+        {
+        name:data[0]?.strIngredient13,
+        id:13
+        },        
+        {
+        name:data[0]?.strIngredient14,
+        id:14
+        },
+        {
+        name:data[0]?.strIngredient15,
+        id:15
+        }
+        
     ];
 
     const Measures = [
-        data[0].strMeasure1,
-        data[0].strMeasure2,
-        data[0].strMeasure3,
-        data[0].strMeasure4,
-        data[0].strMeasure5,
-        data[0].strMeasure6,
-        data[0].strMeasure7,
-        data[0].strMeasure8,
-        data[0].strMeasure9,
-        data[0].strMeasure10,
-        data[0].strMeasure11,
-        data[0].strMeasure12,
-        data[0].strMeasure13,
-        data[0].strMeasure14,
-        data[0].strMeasure15,
-    ]; */
-
+        {
+        name:data[0]?.strMeasure1,
+        id:1
+        },
+        {
+        name:data[0]?.strMeasure2,
+        id:2
+        },        
+        {
+        name:data[0]?.strMeasure3,
+        id:3
+        },
+        {
+        name:data[0]?.strMeasure4,
+        id:4
+        },        
+        {
+        name:data[0]?.strMeasure5,
+        id:5
+        },        
+        {
+        name:data[0]?.strMeasure6,
+        id:6
+        },        
+        {
+        name:data[0]?.strMeasure7,
+        id:7
+        },
+        {
+        name:data[0]?.strMeasure8,
+        id:8
+        },
+        {
+        name:data[0]?.strMeasure9,
+        id:9
+        },        
+        {
+        name:data[0]?.strMeasure10,
+        id:10
+        },
+        {
+        name:data[0]?.strMeasure11,
+        id:11
+        },        
+        {
+        name:data[0]?.strMeasure12,
+        id:12
+        },        
+        {
+        name:data[0]?.strMeasure13,
+        id:13
+        },        
+        {
+        name:data[0]?.strMeasure14,
+        id:14
+        },
+        {
+        name:data[0]?.strMeasure15,
+        id:15
+        }
+        
+    ];
+ 
     return (
         <SafeAreaView style={styles.container}>
             {data.map((cocktail) => (
@@ -74,6 +164,22 @@ export default function About () {
                         <Text style={styles.title}>{cocktail.strDrink}</Text>
                         <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
                         <Text style={styles.text}>{cocktail.strInstructions}</Text>
+                        <View style={{ flexDirection: 'row' }}>
+                            <View style={{paddingLeft: 15}}>
+                                {Ingredients.map((Ingredient) => {
+                                    return (
+                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                    );
+                                })}
+                            </View>
+                            <View style={{paddingLeft: 30}}>
+                                {Measures.map((Measure) => {
+                                    return (
+                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                    );
+                                })}
+                            </View>
+                        </View>
                         <Pressable style={styles.button}>
                             <Text onPress={fetchCocktailHandler}>Get random cocktail</Text>
                         </Pressable>

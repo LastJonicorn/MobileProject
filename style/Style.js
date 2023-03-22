@@ -6,6 +6,18 @@ export default StyleSheet.create({
         backgroundColor: '#fff',
         textAlign: 'center',
       },
+      flexContainer: {
+        flexDirection: 'row',
+        flex: 1,
+        backgroundColor: '#fff',
+        textAlign: 'center',
+      },
+      flexContainer2: {
+        flexDirection: 'row',
+        flex: 2,
+        backgroundColor: '#fff',
+        textAlign: 'center',
+      },
     title: {
         fontWeight: 'bold',
         fontSize: 23,
