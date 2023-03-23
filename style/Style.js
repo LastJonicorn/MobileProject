@@ -58,4 +58,13 @@ export default StyleSheet.create({
         margin: 10,
         paddingTop: 250
     },
+    homeContainer: {
+        backgroundColor: '#adadad6d',
+        fontSize: 25,
+    },
+    homeImage: {
+        width: 250,
+        height: 250,
+        alignSelf: 'center',
+    },
 });

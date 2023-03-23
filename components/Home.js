@@ -1,12 +1,17 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import styles from '../style/Style';
 
 export default function Home () {
 
   return (
-    <View style={styles.container}>
-        <Text>This is an app that is designed to help you when you can't deside what to drink</Text>
+    <View>
+      <Text style={styles.homeContainer}>
+        This is an app that is designed to help you to decide what to drink
+      </Text>
+      <Image source={require('../pictures/red_cocktail.jpg')}
+        style={styles.homeImage}>
+      </Image>
     </View>
   )
 }
