@@ -169,14 +169,14 @@ export default function About () {
                             <View style={{paddingLeft: 15}}>
                                 {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
                                     return (
-                                    <Text key={Ingredients.id} style={{fontSize:15}}>{Ingredient.name}</Text>
+                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
                                     );
                                 })}
                             </View>
                             <View style={{paddingLeft: 30}}>
                                 {Measures.filter(v => v.name !== null).map((Measure) => {
                                     return (
-                                    <Text key={Measures.id} style={{fontSize:15}}>{Measure.name}</Text>
+                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
                                     );
                                 })}
                             </View>
