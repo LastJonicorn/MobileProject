@@ -1,192 +1,82 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { TextInput, Button, IconButton, Colors, Searchbar } from 'react-native-paper';
 import axios from 'axios';
 import styles from '../style/Style';
 
-export default function Search () {
+export default function Search() {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([])
+    const [cockTail, setcockTail] = useState([])
+    const [ctName, setctName] = useState('')
+    const [searchParam, setsearchParam] = useState('')
+    const [baseUrl, setbaseUrl] = useState('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 
-    const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+    const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName;
 
-    const fetchCocktailHandler = useCallback(() => {
-        setLoading(true);
-        axios.get(URL).then(res=> {
-            //console.log(res.data);
-            setData(res.data.drinks)
-        })
-        .catch(e=>console.log(e))
-        .finally(() => setLoading(false));
-    }, []);
+     const fetchCocktailHandler = useCallback(() => {
+          setLoading(true);
+         axios.get(URL).then(res => {
+             //console.log(res.data);
+             setData(res.data.drinks)
+         })
+             .catch(e => console.log(e))
+             .finally(() => setLoading(false));
+     }, [URL]);
 
-    useEffect(() => {
-        fetchCocktailHandler()
-    },[fetchCocktailHandler]);
+    //  useEffect(() => {
+    //     if(ctName === null) {
+    //         setctName('')
+    //     }
+    //     axios.get(baseUrl)
+    //     .then((response) => {
+    //         const json = response.data
+    //        setData(json.drinks)
+    //      }).catch(error => console.log(error))
+    //     .finally(() => setLoading(false))
+    // }, [baseUrl])
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
 
-    const Ingredients = [
-        {
-        name:data[0]?.strIngredient1,
-        id:1
-        },
-        {
-        name:data[0]?.strIngredient2,
-        id:2
-        },        
-        {
-        name:data[0]?.strIngredient3,
-        id:3
-        },
-        {
-        name:data[0]?.strIngredient4,
-        id:4
-        },        
-        {
-        name:data[0]?.strIngredient5,
-        id:5
-        },        
-        {
-        name:data[0]?.strIngredient6,
-        id:6
-        },        
-        {
-        name:data[0]?.strIngredient7,
-        id:7
-        },
-        {
-        name:data[0]?.strIngredient8,
-        id:8
-        },
-        {
-        name:data[0]?.strIngredient9,
-        id:9
-        },        
-        {
-        name:data[0]?.strIngredient10,
-        id:10
-        },
-        {
-        name:data[0]?.strIngredient11,
-        id:11
-        },        
-        {
-        name:data[0]?.strIngredient12,
-        id:12
-        },        
-        {
-        name:data[0]?.strIngredient13,
-        id:13
-        },        
-        {
-        name:data[0]?.strIngredient14,
-        id:14
-        },
-        {
-        name:data[0]?.strIngredient15,
-        id:15
-        }
-        
-    ];
+    // if (cockTail.length <=0) {
+    //     return <Text>Cannot find drink</Text>;
+    //   }
+    //   function back(){
+    //     setProductInfo(null);
+    //   }
+    //   if (productInfo !=null) {
+    //     return <ProductDetails
+    //     name={productInfo.name}
+    //     price={productInfo.price}
+    //     description={productInfo.description}
+    //     image={productInfo.image}
+    //     back={back}
+    //     />
+    //   } else
 
-    const Measures = [
-        {
-        name:data[0]?.strMeasure1,
-        id:1
-        },
-        {
-        name:data[0]?.strMeasure2,
-        id:2
-        },        
-        {
-        name:data[0]?.strMeasure3,
-        id:3
-        },
-        {
-        name:data[0]?.strMeasure4,
-        id:4
-        },        
-        {
-        name:data[0]?.strMeasure5,
-        id:5
-        },        
-        {
-        name:data[0]?.strMeasure6,
-        id:6
-        },        
-        {
-        name:data[0]?.strMeasure7,
-        id:7
-        },
-        {
-        name:data[0]?.strMeasure8,
-        id:8
-        },
-        {
-        name:data[0]?.strMeasure9,
-        id:9
-        },        
-        {
-        name:data[0]?.strMeasure10,
-        id:10
-        },
-        {
-        name:data[0]?.strMeasure11,
-        id:11
-        },        
-        {
-        name:data[0]?.strMeasure12,
-        id:12
-        },        
-        {
-        name:data[0]?.strMeasure13,
-        id:13
-        },        
-        {
-        name:data[0]?.strMeasure14,
-        id:14
-        },
-        {
-        name:data[0]?.strMeasure15,
-        id:15
-        }
-        
-    ];
- 
     return (
         <SafeAreaView style={styles.container}>
-            {data.map((cocktail) => (
-                <ScrollView>
+            <ScrollView>
+                <TextInput
+                    label='Drink Name'
+                    value={ctName}
+                    onChangeText={newName => setctName(newName)}
+                />
+                <IconButton
+                    icon="camera"
+                    size={20}
+                    onPress={(fetchCocktailHandler)}
+                />
+                {data.map((cocktail) => (
                     <View key={cocktail.idDrink}>
-                        <Text style={styles.title}>{cocktail.strDrink}</Text>
-                        <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
-                        <Text style={styles.text}>{cocktail.strInstructions}</Text>
-                        <Text style={styles.ingredients}>Ingredients</Text>
-                        <View style={{ flexDirection: 'row' }}>
-                            <View style={{paddingLeft: 15}}>
-                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
-                                    return (
-                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
-                                    );
-                                })}
-                            </View>
-                            <View style={{paddingLeft: 30}}>
-                                {Measures.filter(v => v.name !== null).map((Measure) => {
-                                    return (
-                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
-                                    );
-                                })}
-                            </View>
-                        </View>
-                        <Pressable style={styles.button}>
-                            <Text onPress={fetchCocktailHandler}>Get random cocktail</Text>
-                        </Pressable>
+                        <Text style={styles.text}>{cocktail.strDrink}</Text>
+                        <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
                     </View>
-                </ScrollView>
-            ))}
+                ))}
+            </ScrollView>
         </SafeAreaView>
     )
 }
