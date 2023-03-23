@@ -12,7 +12,14 @@ const Tab = createBottomTabNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarStyle: { position: 'absolute' },
+          tabBarInactiveBackgroundColor:'#ffeae8',
+          tabBarActiveBackgroundColor:'#ffd1cc',
+          tabBarActiveTintColor:'black',
+          tabBarInactiveTintColor:'black',
+        }}>
         <Tab.Screen 
           name='Home' component={Home} options={{
           tabBarLabel: 'Home',
@@ -31,7 +38,7 @@ export default function App() {
           options={{
           tabBarLabel: 'Random cocktail',
           tabBarIcon: () => (
-          <MaterialCommunityIcons name="help" color='black' size={26} />
+          <MaterialCommunityIcons name="dice-multiple" color='black' size={26} />
           ),
         }}/>
         <Tab.Screen name='Favourites' component={Favourites}          
