@@ -1,6 +1,8 @@
 import React from 'react';
+import { SafeAreaView, Text, View } from 'react-native';
 import { Text, View, Image } from 'react-native';
 import styles from '../style/Style';
+
 
 export default function Home () {
 
