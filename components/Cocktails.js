@@ -167,16 +167,16 @@ export default function About () {
                         <Text style={styles.ingredients}>Ingredients</Text>
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{paddingLeft: 15}}>
-                                {Ingredients.map((Ingredient) => {
+                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
                                     return (
-                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                    <Text key={Ingredients.id} style={{fontSize:15}}>{Ingredient.name}</Text>
                                     );
                                 })}
                             </View>
                             <View style={{paddingLeft: 30}}>
-                                {Measures.map((Measure) => {
+                                {Measures.filter(v => v.name !== null).map((Measure) => {
                                     return (
-                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                    <Text key={Measures.id} style={{fontSize:15}}>{Measure.name}</Text>
                                     );
                                 })}
                             </View>
