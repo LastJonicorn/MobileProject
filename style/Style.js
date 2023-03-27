@@ -7,13 +7,13 @@ export default StyleSheet.create({
         textAlign: 'center',
         marginBottom: 50
     },
-      flexContainer: {
+    flexContainer: {
         flexDirection: 'row',
         flex: 1,
         backgroundColor: '#fff',
         textAlign: 'center',
     },
-      flexContainer2: {
+    flexContainer2: {
         flexDirection: 'row',
         flex: 2,
         backgroundColor: '#fff',
@@ -60,12 +60,20 @@ export default StyleSheet.create({
         paddingTop: 250
     },
     homeContainer: {
-        backgroundColor: '#adadad6d',
-        fontSize: 25,
-    },
-    homeImage: {
-        width: 250,
-        height: 250,
+        fontSize: 30,
+        textAlign: 'center',
+        color: 'white',
+        marginTop: 400,
+        width: 350,
+        borderRadius: 10,
+        overflow: 'hidden',
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
         alignSelf: 'center',
+        paddingVertical: 20,
+        paddingHorizontal: 10,
+    },      
+    homeImage: {
+        flex: 1,
+        resizeMode: 'cover',
     },
 });
