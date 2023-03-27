@@ -1,12 +1,14 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
 import styles from '../style/Style';
 
 export default function About () {
 
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+    const [color,setColor] = useState(true);
 
     const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
@@ -27,6 +29,27 @@ export default function About () {
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
+
+    const grey = '#2f2f2f';
+    const yellow = '#FFD712';
+    
+    
+    const favorite = [];
+    favorite.push(
+        <Pressable 
+            key={'favorite'}
+            //onPress = {addFavorite}
+            >
+            <MaterialCommunityIcons
+                name={"star"}
+                key={'buttonsRow'}
+                size={60}
+                onPress = {()=>setColor(!color)}
+                style={{color:color ? '#808080':'#ffd500'}}
+                >
+            </MaterialCommunityIcons>
+        </Pressable>
+    );
 
     const Ingredients = [
         {
@@ -161,7 +184,10 @@ export default function About () {
             {data.map((cocktail) => (
                 <ScrollView>
                     <View key={cocktail.idDrink}>
-                        <Text style={styles.title}>{cocktail.strDrink}</Text>
+                        <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
+                            <Text style={styles.title}>{cocktail.strDrink}</Text>
+                            <View>{favorite}</View>
+                        </View>
                         <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
                         <Text style={styles.text}>{cocktail.strInstructions}</Text>
                         <Text style={styles.ingredients}>Ingredients</Text>

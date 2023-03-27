@@ -5,6 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         textAlign: 'center',
+        marginBottom: 50
     },
       flexContainer: {
         flexDirection: 'row',
