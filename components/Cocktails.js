@@ -30,13 +30,6 @@ export default function About () {
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
-    
-    function addFavorite(){
-        {favorite.push(id = data[0]?.idDrink)}
-        setFavorite;
-    };
-
-    console.log(favorite);
 
     const Ingredients = [
         {
@@ -165,6 +158,13 @@ export default function About () {
         }
         
     ];
+
+    function addFavorite(){
+        {favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures)}
+        setFavorite;
+    };
+
+    console.log(favorite);
  
     return (
         <SafeAreaView style={styles.container}>
