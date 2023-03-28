@@ -9,6 +9,7 @@ export default function About () {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     const [color,setColor] = useState(true);
+    const [favorite,setFavorite] = useState([]);
 
     const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
@@ -29,27 +30,13 @@ export default function About () {
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
+    
+    function addFavorite(){
+        {favorite.push(id = data[0]?.idDrink)}
+        setFavorite;
+    };
 
-    const grey = '#2f2f2f';
-    const yellow = '#FFD712';
-    
-    
-    const favorite = [];
-    favorite.push(
-        <Pressable 
-            key={'favorite'}
-            //onPress = {addFavorite}
-            >
-            <MaterialCommunityIcons
-                name={"star"}
-                key={'buttonsRow'}
-                size={60}
-                onPress = {()=>setColor(!color)}
-                style={{color:color ? '#808080':'#ffd500'}}
-                >
-            </MaterialCommunityIcons>
-        </Pressable>
-    );
+    console.log(favorite);
 
     const Ingredients = [
         {
@@ -186,7 +173,21 @@ export default function About () {
                     <View key={cocktail.idDrink}>
                         <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
                             <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            <View>{favorite}</View>
+                            <View>
+                                <Pressable 
+                                    key={'favorite'}
+                                >
+                                    <MaterialCommunityIcons
+                                        onPressIn={addFavorite}
+                                        name={"star"}
+                                        key={'buttonsRow'}
+                                        size={60}
+                                        onPress = {()=>setColor(!color)}
+                                        style={{color:color ? '#808080':'#ffd500'}}
+                                        >
+                                    </MaterialCommunityIcons>
+                                </Pressable>
+                            </View>
                         </View>
                         <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
                         <Text style={styles.text}>{cocktail.strInstructions}</Text>
