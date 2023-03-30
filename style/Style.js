@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         textAlign: 'center',
-        marginBottom: 50
+        marginBottom: 50,
     },
     flexContainer: {
         flexDirection: 'row',
@@ -34,7 +34,7 @@ export default StyleSheet.create({
         margin: 30,
         flexDirection: "row",
         padding: 10,
-        backgroundColor: "#c6d7dc",
+        backgroundColor: "#FF5733",
         width: 150,
         borderRadius: 5,
         justifyContent: 'center',
@@ -67,7 +67,7 @@ export default StyleSheet.create({
         width: 350,
         borderRadius: 10,
         overflow: 'hidden',
-        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+        backgroundColor: 'rgba(248, 131, 121, 0.6)',
         alignSelf: 'center',
         paddingVertical: 20,
         paddingHorizontal: 10,
@@ -75,5 +75,8 @@ export default StyleSheet.create({
     homeImage: {
         flex: 1,
         resizeMode: 'cover',
+    },
+    drinkName: {
+        backgroundColor: '#FDB813'
     },
 });
