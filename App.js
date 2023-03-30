@@ -15,8 +15,8 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           tabBarStyle: { position: 'absolute' },
-          tabBarInactiveBackgroundColor:'#ffeae8',
-          tabBarActiveBackgroundColor:'#ffd1cc',
+          tabBarInactiveBackgroundColor:'#fdb7138f',
+          tabBarActiveBackgroundColor:'#FDB813',
           tabBarActiveTintColor:'black',
           tabBarInactiveTintColor:'black',
         }}>

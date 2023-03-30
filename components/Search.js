@@ -62,6 +62,7 @@ export default function Search() {
                         label='Drink Name'
                         value={ctName}
                         onChangeText={newName => setctName(newName)}
+                        style={styles.drinkName}
                     />
 
                     
