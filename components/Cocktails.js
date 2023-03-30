@@ -3,6 +3,9 @@ import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import axios from 'axios';
 import styles from '../style/Style';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { COCKTAIL_KEY } from '../constants/Ct';
+
 
 export default function About () {
 
@@ -15,6 +18,7 @@ export default function About () {
 
     const fetchCocktailHandler = useCallback(() => {
         setLoading(true);
+        setColor(true);
         axios.get(URL).then(res=> {
             //console.log(res.data);
             setData(res.data.drinks)
@@ -160,17 +164,26 @@ export default function About () {
     ];
 
     function addFavorite(){
-        {favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures)}
-        setFavorite;
+        storeFvCt();
     };
 
-    console.log(favorite);
+
+    const storeFvCt = async () => {
+        try {
+            const newFavs = [...data]
+            const jsonValue = JSON.stringify(newFavs);
+            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
  
     return (
         <SafeAreaView style={styles.container}>
-            {data.map((cocktail) => (
+            {data.map((cocktail, i) => (
                 <ScrollView>
-                    <View key={cocktail.idDrink}>
+                    <View key={i}>
                         <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
                             <Text style={styles.title}>{cocktail.strDrink}</Text>
                             <View>
@@ -194,16 +207,19 @@ export default function About () {
                         <Text style={styles.ingredients}>Ingredients</Text>
                         <View style={{ flexDirection: 'row' }}>
                             <View style={{paddingLeft: 15}}>
-                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
+                                {Ingredients.filter(v => v.name !== null).map((Ingredient, o) => {
                                     return (
+                                        <View key={o}>
                                     <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                    </View>
                                     );
                                 })}
                             </View>
                             <View style={{paddingLeft: 30}}>
-                                {Measures.filter(v => v.name !== null).map((Measure) => {
-                                    return (
+                                {Measures.filter(v => v.name !== null).map((Measure, a) => {
+                                    return (<View key={a}>
                                     <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                    </View>
                                     );
                                 })}
                             </View>
