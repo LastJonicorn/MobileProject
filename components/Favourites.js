@@ -3,7 +3,7 @@ import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from
 import axios from 'axios';
 import styles from '../style/Style';
 
-export default function Favourites () {
+export default function Favorites () {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([])

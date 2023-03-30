@@ -14,20 +14,33 @@ export default function Search() {
 
     const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName;
 
-    const fetchCocktailHandler = useCallback(() => {
-        setLoading(true);
-        axios.get(URL).then(res => {
-            //console.log(res.data);
-            setData(res.data.drinks)
-        })
-            .catch(e => console.log(e))
-            .finally(() => setLoading(false));
-    }, [URL]);
 
+    //Alempi koodi toimii napin avulla
+
+    // const fetchCocktailHandler = useCallback(() => {
+    //     setLoading(true);
+    //     axios.get(URL).then(res => {
+    //         //console.log(res.data);
+    //         setData(res.data.drinks)
+    //     })
+    //         .catch(e => console.log(e))
+    //         .finally(() => setLoading(false));
+    // }, [URL]);
+
+
+    //tämä hakee juomat automaattisesti kun kirjoittaa
+    useEffect(() => {
+        console.log(data)
+        axios.get(URL)
+          .then((res) => {
+            setData(res.data.drinks)
+          }) .catch(e => console.log(e))
+          }, [URL])
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
+
 
     function back() {
         setcocktailInfo(null);
@@ -51,12 +64,16 @@ export default function Search() {
                         onChangeText={newName => setctName(newName)}
                         style={styles.drinkName}
                     />
-                    <IconButton
+
+                    
+                    {/* Painalluksella haku jos tarvitsee
+                        <IconButton
                         icon="camera"
                         size={20}
                         onPress={(fetchCocktailHandler)}
-                    />
-                    {data.map((cocktail) => (
+                    /> */}
+                    
+                    {data === null ? <Text>Drink not found</Text>: data.map((cocktail) => (
                         <View key={cocktail.idDrink}>
                             <Text style={styles.text}>{cocktail.strDrink}</Text>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
