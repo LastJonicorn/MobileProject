@@ -6,10 +6,19 @@ import Cocktails from './components/Cocktails';
 import Search from './components/Search';
 import Favourites from './components/Favourites';
 import Home from './components/Home';
+import { useFonts } from 'expo-font';
+
 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+  const [loaded] = useFonts({
+    VarelaRound : require('./assets/fonts/VarelaRound-Regular.ttf')
+  });
+
+  if(!loaded) {
+    return null;
+  }
   return (
     <NavigationContainer>
       <Tab.Navigator
