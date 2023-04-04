@@ -23,12 +23,13 @@ export default StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 23,
         textAlign: 'center',
-        margin: 10,
+        margin: 20,    
     },
     image: {
-        width:300,
-        height:300,
-        alignSelf: 'center',
+        flex: 1,
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1,
     },
     button: {
         margin: 30,
@@ -36,21 +37,28 @@ export default StyleSheet.create({
         padding: 10,
         backgroundColor: "#FF5733",
         width: 150,
-        borderRadius: 5,
+        borderRadius: 10,
         justifyContent: 'center',
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     text: {
         fontSize: 17,
         textAlign: 'center',
         margin: 10,
+        marginTop: 50,
     },
     ingredients: {
-        fontSize: 17,
+        fontSize: 20,
         textAlign: 'center',
-        margin: 10,
-        paddingTop:10,
-        textDecorationLine:'underline'
+        marginBottom: 30,
+        textDecorationLine:'underline',
+    },
+    ingredientsContainer: {
+        borderColor: 'rgba(230, 230, 230, 0.6)',
+        borderWidth: 2,
+        backgroundColor: 'rgba(247, 247, 247, 0.6)',
+        width: '100%',
+        padding: 30,
     },
     loading: {
         fontWeight: 'bold',
@@ -78,5 +86,12 @@ export default StyleSheet.create({
     },
     drinkName: {
         backgroundColor: '#FDB813'
+    },
+    infoBoxContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: -75,
+        borderRadius: 25,
+        backgroundColor: 'rgba(255, 255, 255, 1)',
     },
 });

@@ -183,7 +183,8 @@ export default function About () {
         <SafeAreaView style={styles.container}>
             {data.map((cocktail, i) => (
                 <ScrollView>
-                    <View key={i}>
+                    <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
+                    <View style={styles.infoBoxContainer} key={i}>
                         <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
                             <Text style={styles.title}>{cocktail.strDrink}</Text>
                             <View>
@@ -202,27 +203,28 @@ export default function About () {
                                 </Pressable>
                             </View>
                         </View>
-                        <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
-                        <Text style={styles.text}>{cocktail.strInstructions}</Text>
-                        <Text style={styles.ingredients}>Ingredients</Text>
-                        <View style={{ flexDirection: 'row' }}>
-                            <View style={{paddingLeft: 15}}>
-                                {Ingredients.filter(v => v.name !== null).map((Ingredient, o) => {
-                                    return (
-                                        <View key={o}>
-                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
-                                    </View>
-                                    );
-                                })}
+                        <View style={styles.ingredientsContainer}>
+                            <Text style={styles.ingredients}>Ingredients</Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <View style={{paddingLeft: 15}}>
+                                    {Ingredients.filter(v => v.name !== null).map((Ingredient, o) => {
+                                        return (
+                                            <View key={o}>
+                                        <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                        </View>
+                                        );
+                                    })}
+                                </View>
+                                <View style={{paddingLeft: 30}}>
+                                    {Measures.filter(v => v.name !== null).map((Measure, a) => {
+                                        return (<View key={a}>
+                                        <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                        </View>
+                                        );
+                                    })}
+                                </View>
                             </View>
-                            <View style={{paddingLeft: 30}}>
-                                {Measures.filter(v => v.name !== null).map((Measure, a) => {
-                                    return (<View key={a}>
-                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
-                                    </View>
-                                    );
-                                })}
-                            </View>
+                            <Text style={styles.text}>{cocktail.strInstructions}</Text>
                         </View>
                         <Pressable style={styles.button}>
                             <Text onPress={fetchCocktailHandler}>Get random cocktail</Text>
