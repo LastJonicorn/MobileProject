@@ -2,24 +2,28 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     container: {
+        fontFamily: 'VarelaRound',
         flex: 1,
         backgroundColor: '#fff',
         textAlign: 'center',
         marginBottom: 50,
     },
     flexContainer: {
+        fontFamily: 'VarelaRound',
         flexDirection: 'row',
         flex: 1,
         backgroundColor: '#fff',
         textAlign: 'center',
     },
     flexContainer2: {
+        fontFamily: 'VarelaRound',
         flexDirection: 'row',
         flex: 2,
         backgroundColor: '#fff',
         textAlign: 'center',
     },
     title: {
+        fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 23,
         textAlign: 'center',
@@ -32,6 +36,7 @@ export default StyleSheet.create({
         aspectRatio: 1,
     },
     button: {
+        fontFamily: 'VarelaRound',
         margin: 30,
         flexDirection: "row",
         padding: 10,
@@ -42,6 +47,7 @@ export default StyleSheet.create({
         alignSelf: 'center',
     },
     text: {
+        fontFamily: 'VarelaRound',
         fontSize: 17,
         textAlign: 'center',
         margin: 10,
@@ -49,6 +55,8 @@ export default StyleSheet.create({
     },
     ingredients: {
         fontSize: 20,
+        fontFamily: 'VarelaRound',
+        fontSize: 17,
         textAlign: 'center',
         marginBottom: 30,
         textDecorationLine:'underline',
@@ -68,6 +76,7 @@ export default StyleSheet.create({
         paddingTop: 250
     },
     homeContainer: {
+        fontFamily: 'VarelaRound',
         fontSize: 30,
         textAlign: 'center',
         color: 'white',
@@ -85,6 +94,7 @@ export default StyleSheet.create({
         resizeMode: 'cover',
     },
     drinkName: {
+        fontFamily: 'VarelaRound',
         backgroundColor: '#FDB813'
     },
     infoBoxContainer: {
@@ -94,4 +104,7 @@ export default StyleSheet.create({
         borderRadius: 25,
         backgroundColor: 'rgba(255, 255, 255, 1)',
     },
+    navBar: {
+        fontFamily: 'VarelaRound',
+    }
 });

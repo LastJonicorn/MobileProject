@@ -7,7 +7,7 @@ export default function Home () {
     <ImageBackground source={require('../pictures/red_cocktail.jpg')} style={styles.homeImage}>
       <View>
         <Text style={styles.homeContainer}>
-          This app helps you to decide your drink and teaches you various cocktail recipes!
+          This app helps you to decide what to drink and teaches you various cocktail recipes!
         </Text>
       </View>
     </ImageBackground>
