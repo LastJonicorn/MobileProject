@@ -18,6 +18,7 @@ export default function About () {
 
     const fetchCocktailHandler = useCallback(() => {
         setLoading(true);
+        getCtData();
         setColor(true);
         axios.get(URL).then(res=> {
             //console.log(res.data);
@@ -28,12 +29,25 @@ export default function About () {
     }, []);
 
     useEffect(() => {
-        fetchCocktailHandler()
+        fetchCocktailHandler();
     },[fetchCocktailHandler]);
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
+
+    const getCtData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY);
+          if (jsonValue !== null) {
+            let tmpCt = JSON.parse(jsonValue);
+            setFavorite(tmpCt);
+          }
+        }
+        catch (error) {
+          console.log('Read error: ' + error.message);
+        }
+      }
 
     const Ingredients = [
         {
@@ -164,6 +178,7 @@ export default function About () {
     ];
 
     function addFavorite(){
+       // (favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures))
         storeFvCt();
     };
 
