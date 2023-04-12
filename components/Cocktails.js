@@ -36,19 +36,6 @@ export default function About () {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
 
-    const getCtData = async () => {
-        try {
-          const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY);
-          if (jsonValue !== null) {
-            let tmpCt = JSON.parse(jsonValue);
-            setFavorite(tmpCt);
-          }
-        }
-        catch (error) {
-          console.log('Read error: ' + error.message);
-        }
-      }
-
     const Ingredients = [
         {
         name:data[0]?.strIngredient1,
@@ -182,6 +169,18 @@ export default function About () {
         storeFvCt();
     };
 
+    const getCtData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
+          if (jsonValue !== null) {
+            let tmpCt = JSON.parse(jsonValue);
+            setFavorite(tmpCt);
+          }
+        }
+        catch (error) {
+          console.log('Read error: ' + error.message);
+        }
+      }
 
     const storeFvCt = async () => {
         try {

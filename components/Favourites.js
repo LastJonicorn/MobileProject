@@ -6,9 +6,7 @@ import styles from '../style/Style';
 
 export default Favorites = ( {navigation} ) => {
 
-        const [ctData, setctData] = useState([])
-
-
+    const [ctData, setctData] = useState([])
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
@@ -47,9 +45,9 @@ export default Favorites = ( {navigation} ) => {
                     </View>
                 </ScrollView>
             ))}
-             <Pressable style={styles.button}>
-                            <Text onPress={clearAsyncStorage}>Get random cocktail</Text>
-                        </Pressable>
+            <Pressable style={styles.button}>
+                <Text onPress={clearAsyncStorage}>Get random cocktail</Text>
+            </Pressable>
         </SafeAreaView>
     )
 }
