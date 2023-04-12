@@ -165,7 +165,7 @@ export default function About () {
     ];
 
     function addFavorite(){
-       // (favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures))
+        //favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures);
         storeFvCt();
     };
 
@@ -184,7 +184,7 @@ export default function About () {
 
     const storeFvCt = async () => {
         try {
-            const newFavs = [...data]
+            const newFavs = [...favorite, data[0]]
             const jsonValue = JSON.stringify(newFavs);
             await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
         }
