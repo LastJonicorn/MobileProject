@@ -136,38 +136,41 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
-
     return (
-
         <SafeAreaView style={styles.container}>
                 <ScrollView>
-                    <View>
+                    <View style={{paddingBottom: 50}}>
                         <TouchableHighlight style={styles.button}>
                             <Text onPress={back}>Back</Text>
                         </TouchableHighlight>
-                        <Text style={styles.title}>{strDrink}</Text>
                         <Image style={styles.image} src={strDrinkThumb} alt='#'/>
-                        <Text style={styles.text}>{strInstructions}</Text>
-                        <Text style={styles.ingredients}>Ingredients</Text>
-                        <View style={{ flexDirection: 'row' }}>
-                        <View style={{paddingLeft: 15}}>
-                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
+                        <View style={styles.infoBoxContainer}>
+                            <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
+                                <Text style={styles.title}>{strDrink}</Text>
+                            </View>
+                            <View style={styles.ingredientsContainer}>
+                                <Text style={styles.ingredients}>Ingredients</Text>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <View style={{paddingLeft: 15}}>
+                                    {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
                                     return (
                                     <Text style={{fontSize:15}}>{Ingredient.name}</Text>
                                     );
-                                })}
-                            </View>
-                            <View style={{paddingLeft: 30}}>
-                                {Measures.filter(v => v.name !== null).map((Measure) => {
-                                    return (
-                                    <Text style={{fontSize:15}}>{Measure.name}</Text>
-                                    );
-                                })}
+                                    })}
+                                    </View>
+                                    <View style={{paddingLeft: 30}}>
+                                        {Measures.filter(v => v.name !== null).map((Measure) => {
+                                            return (
+                                            <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                            );
+                                        })}
+                                    </View>
+                                </View>
+                                <Text style={styles.text}>{strInstructions}</Text>
                             </View>
                         </View>
                     </View>
                 </ScrollView>
-            
         </SafeAreaView>
     )
 }

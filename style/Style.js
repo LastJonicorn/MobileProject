@@ -8,6 +8,10 @@ export default StyleSheet.create({
         textAlign: 'center',
         marginBottom: 50,
     },
+    underline: {
+        flex: 1,
+        textAlign: 'center',
+    },
     flexContainer: {
         fontFamily: 'VarelaRound',
         flexDirection: 'row',
@@ -34,6 +38,14 @@ export default StyleSheet.create({
         width: '100%',
         height: undefined,
         aspectRatio: 1,
+    },
+    imageFav: {
+        flex: 1,
+        width: '80%',
+        height: undefined,
+        aspectRatio: 1,
+        borderRadius: 300,
+        alignSelf: 'center',
     },
     button: {
         fontFamily: 'VarelaRound',
@@ -77,17 +89,17 @@ export default StyleSheet.create({
     },
     homeContainer: {
         fontFamily: 'VarelaRound',
-        fontSize: 30,
+        fontSize: 25,
         textAlign: 'center',
         color: 'white',
-        marginTop: 400,
+        marginTop: 300,
         width: 350,
         borderRadius: 10,
         overflow: 'hidden',
         backgroundColor: 'rgba(248, 131, 121, 0.6)',
         alignSelf: 'center',
         paddingVertical: 20,
-        paddingHorizontal: 10,
+        paddingHorizontal: 15,
     },      
     homeImage: {
         flex: 1,

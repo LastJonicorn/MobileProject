@@ -77,9 +77,9 @@ export default Favorites = ({ navigation }) => {
                     {ctData.map((cocktail, i) => (
                         <View key={i}>
                             <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
-                                <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
-                            </TouchableHighlight>
+                            <Pressable onPress={() => setcocktailInfo(cocktail)}>
+                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#' />
+                            </Pressable>
                         </View>
                     ))}
 
