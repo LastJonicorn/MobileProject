@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, TouchableHighlight } from 'react-native';
 import { COCKTAIL_KEY } from '../constants/Ct';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../style/Style';
@@ -7,11 +7,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 
 export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data}) {
-
-    const [color,setColor] = useState(true);
-    const [favorite,setFavorite] = useState([]);
-
-
+    
     const Ingredients = [
         {
         name:data[0]?.strIngredient1,
@@ -140,47 +136,16 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
-    function addFavorite(){
-        setFavorite(favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures))
-        storeFvCt();
-    };
-
-
-    const storeFvCt = async () => {
-        try {
-            const newFavs = [...favorite]
-            const jsonValue = JSON.stringify(newFavs);
-            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
-        }
-        catch (error) {
-            console.log(error.message)
-        }
-    }
 
     return (
 
         <SafeAreaView style={styles.container}>
                 <ScrollView>
                     <View>
-                        <Pressable style={styles.button}>
-                            <Text onPress={back}>Back to search</Text>
-                        </Pressable>
+                        <TouchableHighlight style={styles.button}>
+                            <Text onPress={back}>Back</Text>
+                        </TouchableHighlight>
                         <Text style={styles.title}>{strDrink}</Text>
-                        <View>
-                                <Pressable 
-                                    key={'favorite'}
-                                >
-                                    <MaterialCommunityIcons
-                                        onPressIn={addFavorite}
-                                        name={"star"}
-                                        key={'buttonsRow'}
-                                        size={60}
-                                        onPress = {()=>setColor(!color)}
-                                        style={{color:color ? '#808080':'#ffd500'}}
-                                        >
-                                    </MaterialCommunityIcons>
-                                </Pressable>
-                            </View>
                         <Image style={styles.image} src={strDrinkThumb} alt='#'/>
                         <Text style={styles.text}>{strInstructions}</Text>
                         <Text style={styles.ingredients}>Ingredients</Text>
