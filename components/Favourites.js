@@ -73,8 +73,14 @@ export default Favorites = ({ navigation }) => {
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView>
-                    <Pressable style={styles.button}>
-                        <Text onPress={cleartFavAlert}>Clear favorites</Text>
+                    <Pressable
+                        style={({ pressed }) => [
+                            styles.button,
+                            pressed && { opacity: .7 }
+                        ]}
+                        onPress={cleartFavAlert}
+                    >
+                        <Text>Clear favorites</Text>
                     </Pressable>
                     {ctData.map((cocktail, i) => (
                         <View key={i}>

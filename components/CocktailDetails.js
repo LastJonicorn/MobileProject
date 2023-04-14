@@ -13,6 +13,46 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
     const [favorite,setFavorite] = useState([]);
     const [newFav, setnewFav] = useState([])
 
+    const addFavorite = () => {
+       getCtData()
+       setnewFav(data)
+    }
+
+    const fetchCocktailHandler = useCallback(() => {
+        getCtData();
+    }, []);
+
+    useEffect(() => {
+        fetchCocktailHandler();
+    },[fetchCocktailHandler]);
+
+
+    const getCtData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
+          if (jsonValue !== null) {
+            let tmpCt = JSON.parse(jsonValue);
+            setFavorite(tmpCt);
+          }
+        }
+        catch (error) {
+          console.log('Read error: ' + error.message);
+        }
+        storeFvCt()
+      }
+
+    const storeFvCt = async () => { 
+        console.log(newFav)
+        try {
+            const newFavs = [newFav,...favorite]
+            const jsonValue = JSON.stringify(newFavs);
+            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
+
     const Ingredients = [
         {
         name:data[0]?.strIngredient1,
@@ -141,54 +181,20 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
-    const addFavorite = () => {
-       getCtData()
-       setnewFav(data)
-    }
-
-    const fetchCocktailHandler = useCallback(() => {
-        getCtData();
-    }, []);
-
-    useEffect(() => {
-        fetchCocktailHandler();
-    },[fetchCocktailHandler]);
-
-
-    const getCtData = async () => {
-        try {
-          const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
-          if (jsonValue !== null) {
-            let tmpCt = JSON.parse(jsonValue);
-            setFavorite(tmpCt);
-          }
-        }
-        catch (error) {
-          console.log('Read error: ' + error.message);
-        }
-        storeFvCt()
-      }
-
-    const storeFvCt = async () => { 
-        console.log(newFav)
-        try {
-            const newFavs = [newFav,...favorite]
-            const jsonValue = JSON.stringify(newFavs);
-            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
-        }
-        catch (error) {
-            console.log(error.message)
-        }
-    }
-
 
     return (
         <SafeAreaView style={styles.container}>
                 <ScrollView>
                     <View style={{paddingBottom: 50}}>
-                        <TouchableHighlight style={styles.button}>
-                            <Text onPress={back}>Back</Text>
-                        </TouchableHighlight>
+                        <Pressable
+                            style={({ pressed }) => [
+                                styles.button,
+                                pressed && { opacity: .7 }
+                            ]}
+                            onPress={back}
+                        >
+                            <Text>Back</Text>
+                        </Pressable>
                         <Image style={styles.image} src={strDrinkThumb} alt='#'/>
                         <View style={styles.infoBoxContainer}>
                             <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
