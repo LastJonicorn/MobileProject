@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, TouchableHighlight } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, TouchableHighlight} from 'react-native';
 import { COCKTAIL_KEY } from '../constants/Ct';
+import {ctInfo} from './Search';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../style/Style';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import Search from './Search';
 
-
-export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data}) {
+export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data, ctData, cocktailInfo, navigation}) {
     
     const [color,setColor] = useState(true);
     const [favorite,setFavorite] = useState([]);
@@ -140,10 +141,19 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
-    function addFavorite(){
+    const addFavorite = () => {
+       getCtData()
+       setnewFav(data)
+    }
+
+    const fetchCocktailHandler = useCallback(() => {
         getCtData();
-        storeFvCt();
-    };
+    }, []);
+
+    useEffect(() => {
+        fetchCocktailHandler();
+    },[fetchCocktailHandler]);
+
 
     const getCtData = async () => {
         try {
@@ -156,11 +166,13 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         catch (error) {
           console.log('Read error: ' + error.message);
         }
+        storeFvCt()
       }
 
-    const storeFvCt = async () => {
+    const storeFvCt = async () => { 
+        console.log(newFav)
         try {
-            const newFavs = [...favorite, data[0]]
+            const newFavs = [newFav,...favorite]
             const jsonValue = JSON.stringify(newFavs);
             await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
         }
@@ -185,10 +197,14 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                             <View>
                                 <Pressable 
                                     key={'favorite'}
-                                    onPress = {()=> setColor(!color)}
+                                    onPress = {(fetchCocktailHandler)}
                                 >
                                     <MaterialCommunityIcons
-                                        onPressIn={(addFavorite)}
+                                      onPress = {()=> {
+                                        setColor(!color)
+                                        addFavorite()
+                                    }}
+                                        onPressIn={() => setnewFav(data)}
                                         name={"star"}
                                         key={'buttonsRow'}
                                         size={60}

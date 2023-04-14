@@ -25,21 +25,14 @@ export default Favorites = ({ navigation }) => {
             if (jsonValue !== null) {
                 let newFav = JSON.parse(jsonValue);
                 setctData(newFav);
-                console.log(ctData)
             }
         }
         catch (error) {
             console.log(error.message);
         }
     }
-
-    const restartApp = () => {
-        DevSettings.reload()
-    }
-
     const clearAsyncStorage = async () => {
         try {
-            emptyKey = []
           keys = await AsyncStorage.getAllKeys()
           console.log(keys)
           await AsyncStorage.multiRemove(keys)
@@ -62,6 +55,7 @@ export default Favorites = ({ navigation }) => {
       },
       {text: 'OK', onPress: () => {clearAsyncStorage()}},
     ]);
+
 
     function back() {
         setcocktailInfo(null);

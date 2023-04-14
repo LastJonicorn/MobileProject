@@ -8,11 +8,10 @@ import CocktailDetails from './CocktailDetails';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
 
-
 export default function Search() {
 
     const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([])
+    const [ctData, setctData] = useState([])
     const [ctName, setctName] = useState('')
     const [cocktailInfo, setcocktailInfo] = useState(null)
     const [color,setColor] = useState(true);
@@ -23,46 +22,16 @@ export default function Search() {
 
 
     useEffect(() => {
-        console.log(data)
+        console.log(ctData)
         axios.get(URL)
           .then((res) => {
-            setData(res.data.drinks)
+            setctData(res.data.drinks)
           }) .catch(e => console.log(e))
           }, [URL])
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
     }
-
-    function addFavorite(){
-        getCtData();
-        storeFvCt();
-    };
-
-    const getCtData = async () => {
-        try {
-          const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
-          if (jsonValue !== null) {
-            let tmpCt = JSON.parse(jsonValue);
-            setFavorite(tmpCt);
-          }
-        }
-        catch (error) {
-          console.log('Read error: ' + error.message);
-        }
-      }
-
-    const storeFvCt = async () => {
-        try {
-            const newFavs = [...favorite, data[cocktail.idDrink]]
-            const jsonValue = JSON.stringify(newFavs);
-            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
-        }
-        catch (error) {
-            console.log(error.message)
-        }
-    }
-
 
     function back() {
         setcocktailInfo(null);
@@ -72,7 +41,7 @@ export default function Search() {
             strDrink={cocktailInfo.strDrink}
             strDrinkThumb={cocktailInfo.strDrinkThumb}
             strInstructions={cocktailInfo.strInstructions}
-            data={data}
+            data={cocktailInfo}
             back={back}
         />
     } else {
@@ -95,7 +64,7 @@ export default function Search() {
                         onPress={(fetchCocktailHandler)}
                     /> */}
                     
-                    {data === null ? <Text>Drink not found</Text>: data.map((cocktail) => (
+                    {ctData === null ? <Text>Drink not found</Text>: ctData.map((cocktail) => (
                         <View key={cocktail.idDrink}>
                             <View>
                             <Text style={styles.text}>{cocktail.strDrink}</Text>

@@ -165,8 +165,13 @@ export default function About () {
     ];
 
     function addFavorite(){
-        //favorite.push(data[0]?.idDrink, data[0]?.strDrink, data[0]?.strDrinkThumb, data[0]?.strInstructions, Ingredients, Measures);
-        storeFvCt();
+        if (color === !color) {
+            data = []
+        } else {
+            console.log(data[0])
+            storeFvCt();
+        }
+
     };
 
     const getCtData = async () => {
