@@ -184,7 +184,7 @@ export default function About () {
 
     const storeFvCt = async () => {
         try {
-            const newFavs = [...favorite, data[0]]
+            const newFavs = [data[0],...favorite]
             const jsonValue = JSON.stringify(newFavs);
             await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
         }

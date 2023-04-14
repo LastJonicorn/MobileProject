@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, TouchableHighlight, Alert } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, TouchableHighlight, Alert, NativeModules } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
 import styles from '../style/Style';
@@ -33,11 +33,19 @@ export default Favorites = ({ navigation }) => {
         }
     }
 
+    const restartApp = () => {
+        DevSettings.reload()
+    }
+
     const clearAsyncStorage = async () => {
         try {
+            emptyKey = []
           keys = await AsyncStorage.getAllKeys()
-          console.log(`Keys: ${keys}`) // Just to see what's going on
+          console.log(keys)
           await AsyncStorage.multiRemove(keys)
+          const newKey = [ctData]
+          const jsonValue = JSON.stringify(newKey);
+          await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
         } catch(e) {
          console.log(e)
         }

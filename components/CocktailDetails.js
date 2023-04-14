@@ -8,6 +8,10 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data}) {
     
+    const [color,setColor] = useState(true);
+    const [favorite,setFavorite] = useState([]);
+    const [newFav, setnewFav] = useState([])
+
     const Ingredients = [
         {
         name:data[0]?.strIngredient1,
@@ -136,6 +140,36 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
+    function addFavorite(){
+        getCtData();
+        storeFvCt();
+    };
+
+    const getCtData = async () => {
+        try {
+          const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
+          if (jsonValue !== null) {
+            let tmpCt = JSON.parse(jsonValue);
+            setFavorite(tmpCt);
+          }
+        }
+        catch (error) {
+          console.log('Read error: ' + error.message);
+        }
+      }
+
+    const storeFvCt = async () => {
+        try {
+            const newFavs = [...favorite, data[0]]
+            const jsonValue = JSON.stringify(newFavs);
+            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
+        }
+        catch (error) {
+            console.log(error.message)
+        }
+    }
+
+
     return (
         <SafeAreaView style={styles.container}>
                 <ScrollView>
@@ -147,6 +181,21 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                         <View style={styles.infoBoxContainer}>
                             <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
                                 <Text style={styles.title}>{strDrink}</Text>
+                            </View>
+                            <View>
+                                <Pressable 
+                                    key={'favorite'}
+                                    onPress = {()=> setColor(!color)}
+                                >
+                                    <MaterialCommunityIcons
+                                        onPressIn={(addFavorite)}
+                                        name={"star"}
+                                        key={'buttonsRow'}
+                                        size={60}
+                                        style={{color:color ? '#808080':'#ffd500'}}
+                                        >
+                                    </MaterialCommunityIcons>
+                                </Pressable>
                             </View>
                             <View style={styles.ingredientsContainer}>
                                 <Text style={styles.ingredients}>Ingredients</Text>

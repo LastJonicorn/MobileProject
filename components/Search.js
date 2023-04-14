@@ -99,22 +99,7 @@ export default function Search() {
                         <View key={cocktail.idDrink}>
                             <View>
                             <Text style={styles.text}>{cocktail.strDrink}</Text>
-                                <Pressable 
-                                    key={'favorite'}
-                                >
-                                    <MaterialCommunityIcons
-                                        onPressIn={(addFavorite)}
-                                        name={"star"}
-                                        key={'buttonsRow'}
-                                        size={60}
-                                        onPress = {()=> {
-                                            setColor(!color);
-                                            setnewFav(cocktail)
-                                                }}
-                                        style={{color:color ? '#808080':'#ffd500'}}
-                                        >
-                                    </MaterialCommunityIcons>
-                                </Pressable>
+                              
                             </View>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
                                 <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
