@@ -12,6 +12,7 @@ export default Favorites = ({ props }) => {
     const [ctData, setctData] = useState([])
     const [cocktailInfo, setcocktailInfo] = useState(null)
 
+    const isFocused = useIsFocused()
 
     useEffect(() => {
         console.log('called focus')
