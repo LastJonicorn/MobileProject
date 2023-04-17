@@ -246,8 +246,14 @@ export default function About (props) {
                             </View>
                             <Text style={styles.text}>{cocktail.strInstructions}</Text>
                         </View>
-                        <Pressable style={styles.button}>
-                            <Text onPress={fetchCocktailHandler}>Get random cocktail</Text>
+                        <Pressable 
+                            style={({ pressed }) => [
+                                styles.button,
+                                pressed && { opacity: .7 }
+                            ]}
+                            onPress={fetchCocktailHandler}
+                        >
+                            <Text>Get random cocktail</Text>
                         </Pressable>
                     </View>
                 </ScrollView>

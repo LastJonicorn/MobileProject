@@ -13,8 +13,6 @@ export default Favorites = ({ props }) => {
     const [cocktailInfo, setcocktailInfo] = useState(null)
 
 
-    const isFocused = useIsFocused();
-
     useEffect(() => {
         console.log('called focus')
         if(isFocused) {
@@ -30,6 +28,7 @@ export default Favorites = ({ props }) => {
             if (jsonValue !== null) {
                 let newFav = JSON.parse(jsonValue);
                 setctData(newFav);
+                console.log(ctData)
             }
         }
         catch (error) {
@@ -78,18 +77,23 @@ export default Favorites = ({ props }) => {
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView>
-                    <Pressable style={styles.button}>
-                        <Text onPress={cleartFavAlert}>Clear favorites</Text>
+                    <Pressable
+                        style={({ pressed }) => [
+                            styles.button,
+                            pressed && { opacity: .7 }
+                        ]}
+                        onPress={cleartFavAlert}
+                    >
+                        <Text>Clear favorites</Text>
                     </Pressable>
                     {ctData.map((cocktail, i) => (
                         <View key={i}>
-                            <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            <Pressable onPress={() => setcocktailInfo(cocktail)}>
-                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#' />
+                            <Pressable style={{ flexDirection: 'row', paddingLeft: 20}} onPress={() => setcocktailInfo(cocktail)}>
+                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
+                                <Text style={styles.title}>{cocktail.strDrink}</Text>
                             </Pressable>
                         </View>
                     ))}
-
                 </ScrollView>
             </SafeAreaView>
         )
