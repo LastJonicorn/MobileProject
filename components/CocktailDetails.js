@@ -16,6 +16,7 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
     const addFavorite = () => {
        getCtData()
        setnewFav(data)
+       console.log(data[0])
     }
 
     const fetchCocktailHandler = useCallback(() => {
@@ -33,24 +34,25 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
           if (jsonValue !== null) {
             let tmpCt = JSON.parse(jsonValue);
             setFavorite(tmpCt);
+            //console.log(tmpCt)
           }
         }
         catch (error) {
-          console.log('Read error: ' + error.message);
+          //console.log('Read error: ' + error.message);
         }
-        storeFvCt()
       }
 
     const storeFvCt = async () => { 
-        console.log(newFav)
+        //console.log(newFav)
         try {
             const newFavs = [newFav,...favorite]
             const jsonValue = JSON.stringify(newFavs);
             await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue);
         }
         catch (error) {
-            console.log(error.message)
+            //console.log(error.message)
         }
+        storeFvCt()
     }
 
     const Ingredients = [

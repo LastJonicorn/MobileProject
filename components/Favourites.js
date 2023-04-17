@@ -24,6 +24,7 @@ export default Favorites = ({ navigation }) => {
             if (jsonValue !== null) {
                 let newFav = JSON.parse(jsonValue);
                 setctData(newFav);
+                console.log(ctData)
             }
         }
         catch (error) {

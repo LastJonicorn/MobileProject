@@ -168,10 +168,9 @@ export default function About () {
         if (color === !color) {
             data = []
         } else {
-            console.log(data[0])
+            //console.log(data[0])
             storeFvCt();
         }
-
     };
 
     const getCtData = async () => {
