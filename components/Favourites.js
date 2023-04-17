@@ -40,10 +40,7 @@ export default Favorites = ({ props }) => {
         try {
           keys = await AsyncStorage.getAllKeys()
           console.log(keys)
-          await AsyncStorage.multiRemove(keys)
-          const newKey = [ctData]
-          const jsonValue = JSON.stringify(newKey);
-          await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
+          await AsyncStorage.clear()
         } catch(e) {
          console.log(e)
         }
