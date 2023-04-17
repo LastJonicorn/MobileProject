@@ -5,19 +5,24 @@ import { COCKTAIL_KEY } from '../constants/Ct';
 import styles from '../style/Style';
 import CocktailDetails from './CocktailDetails';
 import RNRestart from 'react-native-restart';
+import { useIsFocused } from '@react-navigation/native';
 
-export default Favorites = ({ navigation }) => {
+export default Favorites = ({ props }) => {
 
     const [ctData, setctData] = useState([])
     const [cocktailInfo, setcocktailInfo] = useState(null)
 
 
+    const isFocused = useIsFocused();
+
     useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
+        console.log('called focus')
+        if(isFocused) {
             storeFvCt()
-        });
-        return unsubscribe;
-    }, [navigation]);
+            console.log(ctData)
+        }
+      
+    }, [props, isFocused]);
 
     const storeFvCt = async () => {
         try {

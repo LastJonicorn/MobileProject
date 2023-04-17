@@ -5,9 +5,10 @@ import axios from 'axios';
 import styles from '../style/Style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
+import { useIsFocused } from '@react-navigation/native';
 
 
-export default function About () {
+export default function About (props) {
 
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
@@ -17,9 +18,8 @@ export default function About () {
     const URL = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
 
     const fetchCocktailHandler = useCallback(() => {
-        setLoading(true);
-        getCtData();
-        setColor(true);
+        setColor(true)
+        getCtData()
         axios.get(URL).then(res=> {
             //console.log(res.data);
             setData(res.data.drinks)
@@ -28,9 +28,17 @@ export default function About () {
         .finally(() => setLoading(false));
     }, []);
 
+    const isFocused = useIsFocused();
+
     useEffect(() => {
-        fetchCocktailHandler();
-    },[fetchCocktailHandler]);
+        
+        if(isFocused) {
+            console.log(data)
+            getCtData()
+            fetchCocktailHandler()
+            }
+      
+    }, []);
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
@@ -165,22 +173,15 @@ export default function About () {
     ];
 
     function addFavorite(){
-        if (color === !color) {
-            data = []
-        } else {
             console.log(data[0])
-            storeFvCt();
-        }
-
+            storeFvCt();        
     };
 
     const getCtData = async () => {
         try {
           const jsonValue = await AsyncStorage.getItem(COCKTAIL_KEY);
-          if (jsonValue !== null) {
             let tmpCt = JSON.parse(jsonValue);
             setFavorite(tmpCt);
-          }
         }
         catch (error) {
           console.log('Read error: ' + error.message);

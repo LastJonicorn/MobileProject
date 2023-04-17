@@ -6,8 +6,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from '../style/Style';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Search from './Search';
+import { useIsFocused } from '@react-navigation/native';
 
-export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data, ctData, cocktailInfo, navigation}) {
+export default function CocktailDetails({strDrink, strDrinkThumb, strInstructions, back, Ingredient, Measure, data, ctData, cocktailInfo, navigation, props}) {
     
     const [color,setColor] = useState(true);
     const [favorite,setFavorite] = useState([]);
@@ -141,18 +142,24 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         
     ];
 
-    const addFavorite = () => {
-       getCtData()
-       setnewFav(data)
-    }
-
-    const fetchCocktailHandler = useCallback(() => {
-        getCtData();
-    }, []);
+    const isFocused = useIsFocused();
 
     useEffect(() => {
-        fetchCocktailHandler();
-    },[fetchCocktailHandler]);
+        console.log('called focus')
+        if(isFocused) {
+            getCtData()
+            console.log('ct' + data)
+        }
+      
+    }, [props, isFocused]);
+
+    const addFavorite = () => {
+        setColor(false)
+        storeFvCt()
+    setnewFav(data)
+
+    }
+
 
 
     const getCtData = async () => {
@@ -161,12 +168,12 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
           if (jsonValue !== null) {
             let tmpCt = JSON.parse(jsonValue);
             setFavorite(tmpCt);
-          }
+            console.log('tmpt' + tmpCt)       
+         }
         }
         catch (error) {
           console.log('Read error: ' + error.message);
         }
-        storeFvCt()
       }
 
     const storeFvCt = async () => { 
@@ -179,6 +186,7 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
         catch (error) {
             console.log(error.message)
         }
+
     }
 
 
@@ -197,11 +205,10 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                             <View>
                                 <Pressable 
                                     key={'favorite'}
-                                    onPress = {(fetchCocktailHandler)}
                                 >
                                     <MaterialCommunityIcons
                                       onPress = {()=> {
-                                        setColor(!color)
+                                        setColor(true)
                                         addFavorite()
                                     }}
                                         onPressIn={() => setnewFav(data)}
