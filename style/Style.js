@@ -40,12 +40,11 @@ export default StyleSheet.create({
         aspectRatio: 1,
     },
     imageFav: {
-        flex: 1,
-        width: '80%',
+        width: '25%',
         height: undefined,
         aspectRatio: 1,
-        borderRadius: 300,
-        alignSelf: 'center',
+        borderRadius: 200,
+        marginBottom: 20
     },
     button: {
         fontFamily: 'VarelaRound',

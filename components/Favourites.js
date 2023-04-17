@@ -11,7 +11,6 @@ export default Favorites = ({ navigation }) => {
     const [ctData, setctData] = useState([])
     const [cocktailInfo, setcocktailInfo] = useState(null)
 
-
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             storeFvCt()
@@ -84,13 +83,12 @@ export default Favorites = ({ navigation }) => {
                     </Pressable>
                     {ctData.map((cocktail, i) => (
                         <View key={i}>
-                            <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            <Pressable onPress={() => setcocktailInfo(cocktail)}>
-                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#' />
+                            <Pressable style={{ flexDirection: 'row', paddingLeft: 20}} onPress={() => setcocktailInfo(cocktail)}>
+                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
+                                <Text style={styles.title}>{cocktail.strDrink}</Text>
                             </Pressable>
                         </View>
                     ))}
-
                 </ScrollView>
             </SafeAreaView>
         )
