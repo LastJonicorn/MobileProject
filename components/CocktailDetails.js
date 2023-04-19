@@ -26,63 +26,63 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
 
     const Ingredients = [
         {
-        name:data[0]?.strIngredient1,
+        name:cocktailInfo.strIngredient1,
         id:1
         },
         {
-        name:data[0]?.strIngredient2,
+        name:cocktailInfo.strIngredient2,
         id:2
         },        
         {
-        name:data[0]?.strIngredient3,
+        name:cocktailInfo.strIngredient3,
         id:3
         },
         {
-        name:data[0]?.strIngredient4,
+        name:cocktailInfo.strIngredient4,
         id:4
         },        
         {
-        name:data[0]?.strIngredient5,
+        name:cocktailInfo.strIngredient5,
         id:5
         },        
         {
-        name:data[0]?.strIngredient6,
+        name:cocktailInfo.strIngredient6,
         id:6
         },        
         {
-        name:data[0]?.strIngredient7,
+        name:cocktailInfo.strIngredient7,
         id:7
         },
         {
-        name:data[0]?.strIngredient8,
+        name:cocktailInfo.strIngredient8,
         id:8
         },
         {
-        name:data[0]?.strIngredient9,
+        name:cocktailInfo.strIngredient9,
         id:9
         },        
         {
-        name:data[0]?.strIngredient10,
+        name:cocktailInfo.strIngredient10,
         id:10
         },
         {
-        name:data[0]?.strIngredient11,
+        name:cocktailInfo.strIngredient11,
         id:11
         },        
         {
-        name:data[0]?.strIngredient12,
+        name:cocktailInfo.strIngredient12,
         id:12
         },        
         {
-        name:data[0]?.strIngredient13,
+        name:cocktailInfo.strIngredient13,
         id:13
         },        
         {
-        name:data[0]?.strIngredient14,
+        name:cocktailInfo.strIngredient14,
         id:14
         },
         {
-        name:data[0]?.strIngredient15,
+        name:cocktailInfo.strIngredient15,
         id:15
         }
         
@@ -90,63 +90,63 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
 
     const Measures = [
         {
-        name:data[0]?.strMeasure1,
+        name:cocktailInfo.strMeasure1,
         id:1
         },
         {
-        name:data[0]?.strMeasure2,
+        name:cocktailInfo.strMeasure2,
         id:2
         },        
         {
-        name:data[0]?.strMeasure3,
+        name:cocktailInfo.strMeasure3,
         id:3
         },
         {
-        name:data[0]?.strMeasure4,
+        name:cocktailInfo.strMeasure4,
         id:4
         },        
         {
-        name:data[0]?.strMeasure5,
+        name:cocktailInfo.strMeasure5,
         id:5
         },        
         {
-        name:data[0]?.strMeasure6,
+        name:cocktailInfo.strMeasure6,
         id:6
         },        
         {
-        name:data[0]?.strMeasure7,
+        name:cocktailInfo.strMeasure7,
         id:7
         },
         {
-        name:data[0]?.strMeasure8,
+        name:cocktailInfo.strMeasure8,
         id:8
         },
         {
-        name:data[0]?.strMeasure9,
+        name:cocktailInfo.strMeasure9,
         id:9
         },        
         {
-        name:data[0]?.strMeasure10,
+        name:cocktailInfo.strMeasure10,
         id:10
         },
         {
-        name:data[0]?.strMeasure11,
+        name:cocktailInfo.strMeasure11,
         id:11
         },        
         {
-        name:data[0]?.strMeasure12,
+        name:cocktailInfo.strMeasure12,
         id:12
         },        
         {
-        name:data[0]?.strMeasure13,
+        name:cocktailInfo.strMeasure13,
         id:13
         },        
         {
-        name:data[0]?.strMeasure14,
+        name:cocktailInfo.strMeasure14,
         id:14
         },
         {
-        name:data[0]?.strMeasure15,
+        name:cocktailInfo.strMeasure15,
         id:15
         }
         

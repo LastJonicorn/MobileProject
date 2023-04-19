@@ -68,6 +68,7 @@ export default Favorites = ({ props }) => {
             strDrinkThumb={cocktailInfo.strDrinkThumb}
             strInstructions={cocktailInfo.strInstructions}
             data={ctData}
+            cocktailInfo={cocktailInfo}
             back={back}
         />
     } else {
