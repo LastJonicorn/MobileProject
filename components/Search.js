@@ -53,7 +53,7 @@ export default function Search() {
             strDrink={cocktailInfo.strDrink}
             strDrinkThumb={cocktailInfo.strDrinkThumb}
             strInstructions={cocktailInfo.strInstructions}
-            data={cocktailInfo}
+            data={ctData}
             back={back}
         />
     } else {
