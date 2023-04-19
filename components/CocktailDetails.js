@@ -166,7 +166,7 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
     const addFavorite = () => {
         setColor(false)
         storeFvCt()
-    setnewFav(data)
+    setnewFav(cocktailInfo)
 
     }
 
@@ -227,7 +227,7 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                                         setColor(true)
                                         addFavorite()
                                     }}
-                                        onPressIn={() => setnewFav(data)}
+                                        onPressIn={() => setnewFav(cocktailInfo)}
                                         name={"star"}
                                         key={'buttonsRow'}
                                         size={60}
