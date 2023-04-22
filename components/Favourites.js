@@ -74,25 +74,29 @@ export default Favorites = ({ props }) => {
     } else {
 
         return (
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.headerColor}>
                 <ScrollView>
-                    <Pressable
-                        style={({ pressed }) => [
-                            styles.button,
-                            pressed && { opacity: .7 }
-                        ]}
-                        onPress={cleartFavAlert}
-                    >
-                        <Text>Clear favorites</Text>
-                    </Pressable>
-                    {ctData.map((cocktail, i) => (
-                        <View key={i}>
-                            <Pressable style={{ flexDirection: 'row', paddingLeft: 20}} onPress={() => setcocktailInfo(cocktail)}>
-                                <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
-                                <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            </Pressable>
-                        </View>
-                    ))}
+                    <View style={styles.buttonContainer}>
+                        <Pressable
+                            style={({ pressed }) => [
+                                styles.button,
+                                pressed && { opacity: .7 }
+                            ]}
+                            onPress={cleartFavAlert}
+                        >
+                            <Text style={styles.buttonText}>Clear favorites</Text>
+                        </Pressable>
+                    </View>
+                    <View style={styles.favoriteContainer}>
+                        {ctData.map((cocktail, i) => (
+                            <View key={i}>
+                                <Pressable style={styles.favorite} onPress={() => setcocktailInfo(cocktail)}>
+                                    <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
+                                    <Text style={styles.favoriteText}>{cocktail.strDrink}</Text>
+                                </Pressable>
+                            </View>
+                        ))}
+                    </View>
                 </ScrollView>
             </SafeAreaView>
         )

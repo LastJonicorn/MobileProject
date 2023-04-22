@@ -32,6 +32,9 @@ export default function App() {
         <Tab.Screen 
           name='Home' component={Home} options={{
           tabBarLabel: 'Home',
+          headerStyle: {
+            backgroundColor: '#FFD77A'
+          },
           tabBarIcon: () => (
           <MaterialCommunityIcons name="home" color='black' size={26} />
           ),
@@ -39,6 +42,9 @@ export default function App() {
         <Tab.Screen name='Search' component={Search}
           options={{
           tabBarLabel: 'Search',
+          headerStyle: {
+            backgroundColor: '#FFD77A'
+          },
           tabBarIcon: () => (
           <MaterialCommunityIcons name="magnify" color='black' size={26} />
           ),
@@ -46,6 +52,9 @@ export default function App() {
         <Tab.Screen name='Random' component={Cocktails}
           options={{
           tabBarLabel: 'Random cocktail',
+          headerStyle: {
+            backgroundColor: '#FFD77A'
+          },
           tabBarIcon: () => (
           <MaterialCommunityIcons name="dice-multiple" color='black' size={26} />
           ),
@@ -53,6 +62,9 @@ export default function App() {
         <Tab.Screen name='Favourites' component={Favourites}          
           options={{
           tabBarLabel: 'Favorites',
+          headerStyle: {
+            backgroundColor: '#FFD77A'
+          },
           tabBarIcon: () => (
           <MaterialCommunityIcons name="star-outline" color='black' size={26} />
           ),

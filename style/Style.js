@@ -4,7 +4,7 @@ export default StyleSheet.create({
     container: {
         fontFamily: 'VarelaRound',
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         textAlign: 'center',
         marginBottom: 50,
     },
@@ -40,11 +40,10 @@ export default StyleSheet.create({
         aspectRatio: 1,
     },
     imageFav: {
-        width: '25%',
+        width: '30%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
-        marginBottom: 20
     },
     button: {
         fontFamily: 'VarelaRound',
@@ -56,6 +55,11 @@ export default StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'center',
         alignSelf: 'center',
+    },
+    buttonText: {
+        fontSize: 17,
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
     },
     text: {
         fontFamily: 'VarelaRound',
@@ -117,5 +121,37 @@ export default StyleSheet.create({
     },
     navBar: {
         fontFamily: 'VarelaRound',
+    },
+    favoriteContainer: {
+        backgroundColor: 'rgba(255, 255, 255, 1)',
+        marginTop: -50,
+        paddingTop: 60,
+        borderRadius: 25,
+        paddingBottom: 50,
+    },
+    favorite: {
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: 10,
+        marginRight: 10,
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#d6d6d6',
+    },
+    favoriteText: {
+        backgroundColor: '#ececec',
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 23,
+        marginLeft: 20,
+        padding: 30,
+        width: 200,
+        borderRadius: 25,
+    },
+    buttonContainer: {
+        zIndex: 10,
+    },
+    headerColor: {
+        backgroundColor: '#FFD77A',
     }
 });

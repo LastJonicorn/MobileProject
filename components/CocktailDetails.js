@@ -211,7 +211,7 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                             ]}
                             onPress={back}
                         >
-                            <Text>Back</Text>
+                            <Text style={styles.buttonText}>Back</Text>
                         </Pressable>
                         <Image style={styles.image} src={strDrinkThumb} alt='#'/>
                         <View style={styles.infoBoxContainer}>
