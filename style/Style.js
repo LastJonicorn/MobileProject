@@ -128,6 +128,7 @@ export default StyleSheet.create({
         paddingTop: 60,
         borderRadius: 25,
         paddingBottom: 50,
+        height: '100%'
     },
     favorite: {
         flexDirection: 'row',
@@ -149,9 +150,10 @@ export default StyleSheet.create({
         borderRadius: 25,
     },
     buttonContainer: {
-        zIndex: 10,
+        zIndex: 1,
     },
     headerColor: {
-        backgroundColor: '#FFD77A'
+        backgroundColor: '#ffffff',
+        height: '100%',
     }
 });

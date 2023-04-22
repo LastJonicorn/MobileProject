@@ -74,8 +74,8 @@ export default Favorites = ({ props }) => {
     } else {
 
         return (
-            <SafeAreaView style={styles.headerColor}>
-                <ScrollView>
+            <SafeAreaView>
+                <ScrollView style={styles.headerColor}>
                     <View style={styles.buttonContainer}>
                         <Pressable
                             style={({ pressed }) => [
