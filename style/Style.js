@@ -152,6 +152,6 @@ export default StyleSheet.create({
         zIndex: 10,
     },
     headerColor: {
-        backgroundColor: '#FFD77A',
+        backgroundColor: '#FFD77A'
     }
 });
