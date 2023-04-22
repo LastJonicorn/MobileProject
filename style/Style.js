@@ -153,7 +153,7 @@ export default StyleSheet.create({
         zIndex: 1,
     },
     headerColor: {
-        backgroundColor: '#ffffff',
+        backgroundColor: '#FFD77A',
         height: '100%',
     }
 });
