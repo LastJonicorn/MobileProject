@@ -120,6 +120,8 @@ export default StyleSheet.create({
         borderRadius: 25,
         borderColor: '#FDB813',
         borderTopWidth: 1,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
         backgroundColor: 'rgba(255, 255, 255, 1)',
     },
     navBar: {
@@ -131,6 +133,8 @@ export default StyleSheet.create({
         paddingTop: 30,
         borderColor: '#FDB813',
         borderTopWidth: 1,
+        borderRightWidth: 1,
+        borderLeftWidth: 1,
         borderRadius: 25,
         paddingBottom: 50,
         height: '100%'
@@ -156,7 +160,7 @@ export default StyleSheet.create({
     },
     buttonContainer: {
         backgroundColor: '#FFD77A',
-        paddingBottom: 20
+        paddingBottom: 20,
     },
     headerColor: {
         backgroundColor: '#ffffff',
