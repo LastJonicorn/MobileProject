@@ -121,8 +121,7 @@ export default StyleSheet.create({
         marginTop: -75,
         borderRadius: 25,
         borderColor: '#FDB813',
-        borderWidth: 1,
-        bottom: -15,
+        borderTopWidth: 1,
         backgroundColor: 'rgba(255, 255, 255, 1)',
     },
     navBar: {

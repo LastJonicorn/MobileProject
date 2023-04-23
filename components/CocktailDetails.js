@@ -203,7 +203,47 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
     return (
         <SafeAreaView style={styles.container}>
                 <ScrollView>
-                    <View style={{paddingBottom: 50}}>
+                    <Image style={styles.image} src={strDrinkThumb} alt='#'/>
+                    <View style={styles.infoBoxContainer}>
+                        <View style={{ flexDirection: 'row', alignSelf: 'center'}}>
+                            <Text style={styles.title}>{strDrink}</Text>
+                            <Pressable 
+                                key={'favorite'}
+                            >
+                                <MaterialCommunityIcons
+                                    onPress = {()=> {
+                                    setColor(true)
+                                    addFavorite()
+                                }}
+                                    onPressIn={() => setnewFav(cocktailInfo)}
+                                    name={"star"}
+                                    key={'buttonsRow'}
+                                    size={60}
+                                    style={{color:color ? '#808080':'#ffd500'}}
+                                    >
+                                </MaterialCommunityIcons>
+                            </Pressable>
+                        </View>
+                        <View style={styles.ingredientsContainer}>
+                            <Text style={styles.ingredients}>Ingredients</Text>
+                            <View style={{ flexDirection: 'row' }}>
+                                <View style={{paddingLeft: 15}}>
+                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
+                                return (
+                                <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                );
+                                })}
+                                </View>
+                                <View style={{paddingLeft: 30}}>
+                                    {Measures.filter(v => v.name !== null).map((Measure) => {
+                                        return (
+                                        <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                        );
+                                    })}
+                                </View>
+                            </View>
+                            <Text style={styles.text}>{strInstructions}</Text>
+                        </View>
                         <Pressable
                             style={({ pressed }) => [
                                 styles.button,
@@ -213,50 +253,6 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                         >
                             <Text style={styles.buttonText}>Back</Text>
                         </Pressable>
-                        <Image style={styles.image} src={strDrinkThumb} alt='#'/>
-                        <View style={styles.infoBoxContainer}>
-                            <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>
-                                <Text style={styles.title}>{strDrink}</Text>
-                            </View>
-                            <View>
-                                <Pressable 
-                                    key={'favorite'}
-                                >
-                                    <MaterialCommunityIcons
-                                      onPress = {()=> {
-                                        setColor(true)
-                                        addFavorite()
-                                    }}
-                                        onPressIn={() => setnewFav(cocktailInfo)}
-                                        name={"star"}
-                                        key={'buttonsRow'}
-                                        size={60}
-                                        style={{color:color ? '#808080':'#ffd500'}}
-                                        >
-                                    </MaterialCommunityIcons>
-                                </Pressable>
-                            </View>
-                            <View style={styles.ingredientsContainer}>
-                                <Text style={styles.ingredients}>Ingredients</Text>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <View style={{paddingLeft: 15}}>
-                                    {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
-                                    return (
-                                    <Text style={{fontSize:15}}>{Ingredient.name}</Text>
-                                    );
-                                    })}
-                                    </View>
-                                    <View style={{paddingLeft: 30}}>
-                                        {Measures.filter(v => v.name !== null).map((Measure) => {
-                                            return (
-                                            <Text style={{fontSize:15}}>{Measure.name}</Text>
-                                            );
-                                        })}
-                                    </View>
-                                </View>
-                                <Text style={styles.text}>{strInstructions}</Text>
-                            </View>
-                        </View>
                     </View>
                 </ScrollView>
         </SafeAreaView>
