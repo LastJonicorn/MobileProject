@@ -117,11 +117,10 @@ export default StyleSheet.create({
     },
     infoBoxContainer: {
         marginTop: -75,
-        borderRadius: 25,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
         borderColor: '#FDB813',
-        borderTopWidth: 1,
-        borderRightWidth: 1,
-        borderLeftWidth: 1,
+        borderWidth: 1,
         backgroundColor: 'rgba(255, 255, 255, 1)',
     },
     navBar: {
