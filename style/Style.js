@@ -55,6 +55,7 @@ export default StyleSheet.create({
         borderRadius: 20,
         justifyContent: 'center',
         alignSelf: 'center',
+        zIndex: 1,
     },
     buttonText: {
         fontSize: 17,
@@ -71,7 +72,6 @@ export default StyleSheet.create({
     ingredients: {
         fontSize: 20,
         fontFamily: 'VarelaRound',
-        fontSize: 17,
         textAlign: 'center',
         marginBottom: 30,
         textDecorationLine:'underline',
@@ -116,8 +116,6 @@ export default StyleSheet.create({
         backgroundColor: '#FDB813'
     },
     infoBoxContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
         marginTop: -75,
         borderRadius: 25,
         borderColor: '#FDB813',
@@ -129,8 +127,10 @@ export default StyleSheet.create({
     },
     favoriteContainer: {
         backgroundColor: 'rgba(255, 255, 255, 1)',
-        marginTop: -50,
-        paddingTop: 60,
+        marginTop: -25,
+        paddingTop: 30,
+        borderColor: '#FDB813',
+        borderTopWidth: 1,
         borderRadius: 25,
         paddingBottom: 50,
         height: '100%'
@@ -155,10 +155,11 @@ export default StyleSheet.create({
         borderRadius: 25,
     },
     buttonContainer: {
-        zIndex: 1,
+        backgroundColor: '#FFD77A',
+        paddingBottom: 20
     },
     headerColor: {
-        backgroundColor: '#FFD77A',
+        backgroundColor: '#ffffff',
         height: '100%',
     }
 });
