@@ -42,7 +42,7 @@ export default Favorites = ({ props }) => {
         keys = await AsyncStorage.getAllKeys()
         let tmpFaves = [...ctData];
         const index = keys.indexOf(i);
-        tmpFaves.splice(index, 1);
+        tmpFaves.splice(i, 1);
         setctData(tmpFaves);
         const jsonValue = JSON.stringify(tmpFaves);
         await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
@@ -112,7 +112,7 @@ export default Favorites = ({ props }) => {
                                 </Pressable>
                                 <Pressable>                                    
                                     <MaterialCommunityIcons
-                                        onPress={removeFave}
+                                        onPress={() => removeFave(i)}
                                         name={"delete"}
                                         size={40}
                                         >
