@@ -148,14 +148,10 @@ export default StyleSheet.create({
         borderBottomColor: '#d6d6d6',
     },
     favoriteText: {
-        backgroundColor: '#ececec',
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
-        fontSize: 23,
-        marginLeft: 20,
+        fontSize: 20,
         padding: 30,
-        width: 200,
-        borderRadius: 25,
     },
     buttonContainer: {
         backgroundColor: '#FFD77A',
