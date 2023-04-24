@@ -171,8 +171,9 @@ export default function About (props) {
     ];
 
     function addFavorite(){
-        console.log(data[0])
-        storeFvCt();        
+         setColor(false)
+            console.log(data[0])
+            storeFvCt();           
     };
 
     const getCtData = async () => {
