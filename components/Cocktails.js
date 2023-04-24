@@ -171,14 +171,9 @@ export default function About (props) {
     ];
 
     function addFavorite(){
-<<<<<<< HEAD
          setColor(false)
             console.log(data[0])
-            storeFvCt();        
-=======
-        console.log(data[0])
-        storeFvCt();        
->>>>>>> c464848a1b5ad9c00c2beb45476662be1b428cf2
+            storeFvCt();           
     };
 
     const getCtData = async () => {
