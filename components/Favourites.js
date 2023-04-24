@@ -5,6 +5,8 @@ import { COCKTAIL_KEY } from '../constants/Ct';
 import styles from '../style/Style';
 import CocktailDetails from './CocktailDetails';
 import { useIsFocused } from '@react-navigation/native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+
 
 export default Favorites = ({ props }) => {
 
@@ -108,7 +110,14 @@ export default Favorites = ({ props }) => {
                                     <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
                                     <Text style={styles.favoriteText}>{cocktail.strDrink}</Text>
                                 </Pressable>
-                                <Pressable><Text onPress={removeFave}>Delete</Text></Pressable>
+                                <Pressable>                                    
+                                    <MaterialCommunityIcons
+                                        onPress={removeFave}
+                                        name={"delete"}
+                                        size={40}
+                                        >
+                                    </MaterialCommunityIcons>
+                                </Pressable>
 
                             </View>
                         ))}
