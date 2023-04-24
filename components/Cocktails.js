@@ -173,6 +173,7 @@ export default function About (props) {
     ];
 
     function addFavorite(){
+         setColor(false)
             console.log(data[0])
             storeFvCt();        
     };
@@ -212,11 +213,13 @@ export default function About (props) {
                                     key={'favorite'}
                                 >
                                     <MaterialCommunityIcons
-                                        onPressIn={addFavorite}
+                                        onPress = {()=> {
+                                            setColor(true)
+                                            addFavorite()
+                                        }}
                                         name={"star"}
                                         key={'buttonsRow'}
                                         size={60}
-                                        onPress = {()=>setColor(!color)}
                                         style={{color:color ? '#808080':'#ffd500'}}
                                         >
                                     </MaterialCommunityIcons>

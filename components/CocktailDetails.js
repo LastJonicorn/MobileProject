@@ -166,8 +166,6 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
     const addFavorite = () => {
         setColor(false)
         storeFvCt()
-    setnewFav(cocktailInfo)
-
     }
 
 
