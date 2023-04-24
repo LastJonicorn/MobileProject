@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
 import styles from '../style/Style';
 import CocktailDetails from './CocktailDetails';
-import RNRestart from 'react-native-restart';
 import { useIsFocused } from '@react-navigation/native';
 
 export default Favorites = ({ props }) => {
@@ -36,16 +35,31 @@ export default Favorites = ({ props }) => {
             console.log(error.message);
         }
     }
+
+    const removeFave = async(i) => {
+        keys = await AsyncStorage.getAllKeys()
+        let tmpFaves = [...ctData];
+        const index = keys.indexOf(i);
+        tmpFaves.splice(index, 1);
+        setctData(tmpFaves);
+        const jsonValue = JSON.stringify(tmpFaves);
+        await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
+    }
+
     const clearAsyncStorage = async () => {
         try {
           keys = await AsyncStorage.getAllKeys()
           console.log(keys)
-          await AsyncStorage.clear()
+          await AsyncStorage.multiRemove(keys)
+          const newKey = [ctData]
+          const jsonValue = JSON.stringify(newKey);
+          await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
         } catch(e) {
          console.log(e)
         }
         console.log('Done')
         setctData([])
+        NativeModules.DevSettings.reload();
     }
 
     const cleartFavAlert = () =>
@@ -94,6 +108,8 @@ export default Favorites = ({ props }) => {
                                     <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
                                     <Text style={styles.favoriteText}>{cocktail.strDrink}</Text>
                                 </Pressable>
+                                <Pressable><Text onPress={removeFave}>Delete</Text></Pressable>
+
                             </View>
                         ))}
                     </View>

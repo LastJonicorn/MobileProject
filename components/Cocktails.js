@@ -31,13 +31,11 @@ export default function About (props) {
     const isFocused = useIsFocused();
 
     useEffect(() => {
-        
         if(isFocused) {
             console.log(data)
             getCtData()
             fetchCocktailHandler()
-            }
-      
+        }
     }, []);
 
     if (loading) {
@@ -173,8 +171,8 @@ export default function About (props) {
     ];
 
     function addFavorite(){
-            console.log(data[0])
-            storeFvCt();        
+        console.log(data[0])
+        storeFvCt();        
     };
 
     const getCtData = async () => {
