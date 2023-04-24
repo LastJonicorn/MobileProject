@@ -171,8 +171,14 @@ export default function About (props) {
     ];
 
     function addFavorite(){
+<<<<<<< HEAD
+         setColor(false)
+            console.log(data[0])
+            storeFvCt();        
+=======
         console.log(data[0])
         storeFvCt();        
+>>>>>>> c464848a1b5ad9c00c2beb45476662be1b428cf2
     };
 
     const getCtData = async () => {
@@ -210,11 +216,13 @@ export default function About (props) {
                                     key={'favorite'}
                                 >
                                     <MaterialCommunityIcons
-                                        onPressIn={addFavorite}
+                                        onPress = {()=> {
+                                            setColor(true)
+                                            addFavorite()
+                                        }}
                                         name={"star"}
                                         key={'buttonsRow'}
                                         size={60}
-                                        onPress = {()=>setColor(!color)}
                                         style={{color:color ? '#808080':'#ffd500'}}
                                         >
                                     </MaterialCommunityIcons>
