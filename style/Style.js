@@ -40,7 +40,7 @@ export default StyleSheet.create({
         aspectRatio: 1,
     },
     imageFav: {
-        width: '30%',
+        width: '27%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
@@ -151,7 +151,11 @@ export default StyleSheet.create({
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 20,
-        padding: 30,
+        padding: 20,
+    },
+    favoriteDelete: {
+        position:'absolute',
+        right:0
     },
     buttonContainer: {
         backgroundColor: '#FFD77A',

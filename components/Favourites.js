@@ -7,6 +7,7 @@ import CocktailDetails from './CocktailDetails';
 import { useIsFocused } from '@react-navigation/native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
+const CUTTING_EXPRESSION = /\s+[^\s]*$/;
 
 export default Favorites = ({ props }) => {
 
@@ -53,7 +54,7 @@ export default Favorites = ({ props }) => {
           keys = await AsyncStorage.getAllKeys()
           console.log(keys)
           await AsyncStorage.multiRemove(keys)
-          const newKey = [ctData]
+          const newKey = []
           const jsonValue = JSON.stringify(newKey);
           await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
         } catch(e) {
@@ -74,6 +75,23 @@ export default Favorites = ({ props }) => {
       {text: 'OK', onPress: () => {clearAsyncStorage()}},
     ]);
 
+    const createShortcut = (text, limit) => {
+        if (text.length > limit) {
+            const part = text.slice(0, limit - 3);
+            if (part.match(CUTTING_EXPRESSION)) {
+                  return part.replace(CUTTING_EXPRESSION, ' ...');
+            }
+            return part + '...';
+        }
+        return text;
+    };
+
+    const Component = ({text, limit}) => {
+        const shortcut = createShortcut(text, limit);
+        return (
+            <Text title={text}>{shortcut}</Text>
+        );
+    };
 
     function back() {
         setcocktailInfo(null);
@@ -108,17 +126,15 @@ export default Favorites = ({ props }) => {
                             <View key={i}>
                                 <Pressable style={styles.favorite} onPress={() => setcocktailInfo(cocktail)}>
                                     <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
-                                    <Text style={styles.favoriteText}>{cocktail.strDrink}</Text>
-                                </Pressable>
-                                <Pressable>                                    
+                                    <Text style={styles.favoriteText}><Component text={cocktail.strDrink} limit={15}/></Text>
                                     <MaterialCommunityIcons
+                                        style={styles.favoriteDelete}
                                         onPress={() => removeFave(i)}
                                         name={"delete"}
                                         size={40}
                                         >
                                     </MaterialCommunityIcons>
                                 </Pressable>
-
                             </View>
                         ))}
                     </View>
