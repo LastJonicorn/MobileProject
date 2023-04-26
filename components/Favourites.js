@@ -3,7 +3,7 @@ import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList, Touch
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
 import styles from '../style/Style';
-import CocktailDetails from './CocktailDetails';
+import FavoriteDetails from './FavoriteDetails';
 import { useIsFocused } from '@react-navigation/native';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
@@ -97,7 +97,7 @@ export default Favorites = ({ props }) => {
         setcocktailInfo(null);
     }
     if (cocktailInfo != null) {
-        return <CocktailDetails
+        return <FavoriteDetails
             strDrink={cocktailInfo.strDrink}
             strDrinkThumb={cocktailInfo.strDrinkThumb}
             strInstructions={cocktailInfo.strInstructions}
