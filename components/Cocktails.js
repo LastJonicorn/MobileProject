@@ -201,7 +201,7 @@ export default function About (props) {
     return (
         <SafeAreaView style={styles.container}>
             {data.map((cocktail, i) => (
-                <ScrollView>
+                <ScrollView key={i}>
                     <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#'/>
                     <View style={styles.infoBoxContainer} key={i}>
                         <View style={{ flexDirection: 'row', alignSelf: 'center'  }}>

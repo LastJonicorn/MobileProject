@@ -226,16 +226,16 @@ export default function CocktailDetails({strDrink, strDrinkThumb, strInstruction
                             <Text style={styles.ingredients}>Ingredients</Text>
                             <View style={{ flexDirection: 'row' }}>
                                 <View style={{paddingLeft: 15}}>
-                                {Ingredients.filter(v => v.name !== null).map((Ingredient) => {
+                                {Ingredients.filter(v => v.name !== null).map((Ingredient, i) => {
                                 return (
-                                <Text style={{fontSize:15}}>{Ingredient.name}</Text>
+                                <Text style={{fontSize:15}} key={i}>{Ingredient.name}</Text>
                                 );
                                 })}
                                 </View>
                                 <View style={{paddingLeft: 30}}>
-                                    {Measures.filter(v => v.name !== null).map((Measure) => {
+                                    {Measures.filter(v => v.name !== null).map((Measure, i) => {
                                         return (
-                                        <Text style={{fontSize:15}}>{Measure.name}</Text>
+                                        <Text style={{fontSize:15}} key={i}>{Measure.name}</Text>
                                         );
                                     })}
                                 </View>

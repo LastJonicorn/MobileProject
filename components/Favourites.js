@@ -126,7 +126,9 @@ export default Favorites = ({ props }) => {
                             <View key={i}>
                                 <Pressable style={styles.favorite} onPress={() => setcocktailInfo(cocktail)}>
                                     <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
-                                    <Text style={styles.favoriteText}><Component text={cocktail.strDrink} limit={15}/></Text>
+                                    <Text style={styles.favoriteText}>
+                                        <Component text={cocktail.strDrink} limit={20}/>
+                                    </Text>
                                     <MaterialCommunityIcons
                                         style={styles.favoriteDelete}
                                         onPress={() => removeFave(i)}
