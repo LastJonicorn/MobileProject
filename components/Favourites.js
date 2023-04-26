@@ -18,11 +18,11 @@ export default Favorites = ({ props }) => {
 
     useEffect(() => {
         console.log('called focus')
-        if(isFocused) {
+        if (isFocused) {
             storeFvCt()
             console.log(ctData)
         }
-      
+
     }, [props, isFocused]);
 
     const storeFvCt = async () => {
@@ -39,7 +39,7 @@ export default Favorites = ({ props }) => {
         }
     }
 
-    const removeFave = async(i) => {
+    const removeFave = async (i) => {
         keys = await AsyncStorage.getAllKeys()
         let tmpFaves = [...ctData];
         const index = keys.indexOf(i);
@@ -51,14 +51,14 @@ export default Favorites = ({ props }) => {
 
     const clearAsyncStorage = async () => {
         try {
-          keys = await AsyncStorage.getAllKeys()
-          console.log(keys)
-          await AsyncStorage.multiRemove(keys)
-          const newKey = []
-          const jsonValue = JSON.stringify(newKey);
-          await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
-        } catch(e) {
-         console.log(e)
+            keys = await AsyncStorage.getAllKeys()
+            console.log(keys)
+            await AsyncStorage.multiRemove(keys)
+            const newKey = []
+            const jsonValue = JSON.stringify(newKey);
+            await AsyncStorage.setItem(COCKTAIL_KEY, jsonValue)
+        } catch (e) {
+            console.log(e)
         }
         console.log('Done')
         setctData([])
@@ -66,27 +66,27 @@ export default Favorites = ({ props }) => {
     }
 
     const cleartFavAlert = () =>
-    Alert.alert('Clear favorites?', '', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => {clearAsyncStorage()}},
-    ]);
+        Alert.alert('Clear favorites?', '', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel'),
+                style: 'cancel',
+            },
+            { text: 'OK', onPress: () => { clearAsyncStorage() } },
+        ]);
 
     const createShortcut = (text, limit) => {
         if (text.length > limit) {
             const part = text.slice(0, limit - 3);
             if (part.match(CUTTING_EXPRESSION)) {
-                  return part.replace(CUTTING_EXPRESSION, ' ...');
+                return part.replace(CUTTING_EXPRESSION, ' ...');
             }
             return part + '...';
         }
         return text;
     };
 
-    const Component = ({text, limit}) => {
+    const Component = ({ text, limit }) => {
         const shortcut = createShortcut(text, limit);
         return (
             <Text title={text}>{shortcut}</Text>
@@ -125,16 +125,16 @@ export default Favorites = ({ props }) => {
                         {ctData.map((cocktail, i) => (
                             <View key={i}>
                                 <Pressable style={styles.favorite} onPress={() => setcocktailInfo(cocktail)}>
-                                    <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#'/>
+                                    <Image style={styles.imageFav} src={cocktail.strDrinkThumb} alt='#' />
                                     <Text style={styles.favoriteText}>
-                                        <Component text={cocktail.strDrink} limit={20}/>
+                                        <Component text={cocktail.strDrink} limit={20} />
                                     </Text>
                                     <MaterialCommunityIcons
                                         style={styles.favoriteDelete}
                                         onPress={() => removeFave(i)}
                                         name={"delete"}
                                         size={40}
-                                        >
+                                    >
                                     </MaterialCommunityIcons>
                                 </Pressable>
                             </View>

@@ -16,30 +16,32 @@ export default function Search() {
     const [ctName, setctName] = useState('')
     const [ingName, setIngName] = useState('')
     const [cocktailInfo, setcocktailInfo] = useState(null)
-    const [color,setColor] = useState(true);
-    const [favorite,setFavorite] = useState([]);
+    const [color, setColor] = useState(true);
+    const [favorite, setFavorite] = useState([]);
     const [newFav, setnewFav] = useState([])
-    const [isEnabled, setIsEnabled] = useState(true)
-    const [url, setUrl] = useState('')
-    
-    const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName;
+    const [isEnabled, setIsEnabled] = useState(false)
+    const [url, setUrl] = useState('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 
-/*     const toggleSwitch = () => {
-        if (isEnabled) {
-            setUrl('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName)
-        } else {
-            setUrl('https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=' + ctName)
-        }
+    const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName;
+    const URL2 = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=vodka';
+    const toggleSwitch = () => {
         setIsEnabled(previousState => !previousState)
-    } */
+    }
 
     useEffect(() => {
         console.log(ctData)
+        //    if(isEnabled === false) {
         axios.get(URL)
-          .then((res) => {
-            setctData(res.data.drinks)
-          }) .catch(e => console.log(e))
-          }, [URL])
+            .then((res) => {
+                setctData(res.data.drinks)
+            }).catch(e => console.log(e))
+        // } else {
+        //   axios.get(URL2)
+        //  .then((res) => {
+        //    setctData(res.data.drinks)
+        //   console.log(ctData)
+        //}) .catch(e => console.log(e))
+    }, [ctName])
 
     if (loading) {
         return <View style={styles.container}><Text style={styles.loading}>Loading...</Text></View>
@@ -62,12 +64,12 @@ export default function Search() {
         return (
             <SafeAreaView style={styles.container}>
                 <ScrollView>
-{/*                     <Switch
-                        trackColor={{false: 'gray', true: 'tomato'}}
+                    {<Switch
+                        trackColor={{ false: 'gray', true: 'tomato' }}
                         thumbncolor={isEnabled ? 'tomato' : 'blue'}
                         onValueChange={toggleSwitch}
                         value={isEnabled}
-                    /> */}
+                    />}
                     <TextInput
                         label='Drink Name'
                         value={ctName}
@@ -76,24 +78,24 @@ export default function Search() {
                     />
 
 
-                    
+
                     {/* Painalluksella haku jos tarvitsee
                         <IconButton
                         icon="camera"
                         size={20}
                         onPress={(fetchCocktailHandler)}
                     /> */}
-                    
-                    {ctData === null ? <Text>Drink not found</Text>: ctData.map((cocktail) => (
+
+                    {ctData === null ? <Text>Drink not found</Text> : ctData.map((cocktail) => (
                         <View key={cocktail.idDrink}>
                             <View>
-                            <Text style={styles.text}>{cocktail.strDrink}</Text>
-                              
+                                <Text style={styles.text}>{cocktail.strDrink}</Text>
+
                             </View>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
                                 <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
                             </TouchableHighlight>
-                          
+
                         </View>
                     ))}
                 </ScrollView>
