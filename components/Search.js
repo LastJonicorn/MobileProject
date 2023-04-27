@@ -82,10 +82,10 @@ export default function Search() {
                         onPress={(fetchCocktailHandler)}
                     /> */}
 
-                    {ctData === null ? <Text>Drink not found</Text> : ctData.map((cocktail) => (
+                    {ctData === null ? <Text style={styles.title}>Drink not found...</Text> : ctData.map((cocktail) => (
                         <View key={cocktail.idDrink}>
                             <View>
-                                <Text style={styles.text}>{cocktail.strDrink}</Text>
+                                <Text style={styles.title}>{cocktail.strDrink}</Text>
                             </View>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
                                 <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
