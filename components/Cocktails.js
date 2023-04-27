@@ -7,7 +7,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COCKTAIL_KEY } from '../constants/Ct';
 import { useIsFocused } from '@react-navigation/native';
 
-
 export default function About(props) {
 
     const [loading, setLoading] = useState(false);

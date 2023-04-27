@@ -22,8 +22,6 @@ export default function CocktailDetails({ strDrink, strDrinkThumb, strInstructio
         fetchCocktailHandler();
     }, [fetchCocktailHandler]);
 
-
-
     const Ingredients = [
         {
             name: cocktailInfo.strIngredient1,
@@ -149,7 +147,6 @@ export default function CocktailDetails({ strDrink, strDrinkThumb, strInstructio
             name: cocktailInfo.strMeasure15,
             id: 15
         }
-
     ];
 
     const isFocused = useIsFocused();
@@ -160,15 +157,12 @@ export default function CocktailDetails({ strDrink, strDrinkThumb, strInstructio
             getCtData()
             console.log('ct' + data)
         }
-
     }, [props, isFocused]);
 
     const addFavorite = () => {
         setColor(false)
         storeFvCt()
     }
-
-
 
     const getCtData = async () => {
         try {
@@ -194,9 +188,7 @@ export default function CocktailDetails({ strDrink, strDrinkThumb, strInstructio
         catch (error) {
             console.log(error.message)
         }
-
     }
-
 
     return (
         <SafeAreaView style={styles.container}>

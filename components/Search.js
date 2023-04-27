@@ -60,25 +60,21 @@ export default function Search() {
             back={back}
         />
     } else {
-
         return (
             <SafeAreaView style={styles.container}>
+                <TextInput
+                    label='Drink Name'
+                    value={ctName}
+                    onChangeText={newName => setctName(newName)}
+                    style={styles.drinkName}
+                />
                 <ScrollView>
-                    {<Switch
+{/*                     {<Switch
                         trackColor={{ false: 'gray', true: 'tomato' }}
                         thumbncolor={isEnabled ? 'tomato' : 'blue'}
                         onValueChange={toggleSwitch}
                         value={isEnabled}
-                    />}
-                    <TextInput
-                        label='Drink Name'
-                        value={ctName}
-                        onChangeText={newName => setctName(newName)}
-                        style={styles.drinkName}
-                    />
-
-
-
+                    />} */}
                     {/* Painalluksella haku jos tarvitsee
                         <IconButton
                         icon="camera"
@@ -90,12 +86,10 @@ export default function Search() {
                         <View key={cocktail.idDrink}>
                             <View>
                                 <Text style={styles.text}>{cocktail.strDrink}</Text>
-
                             </View>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
                                 <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
                             </TouchableHighlight>
-
                         </View>
                     ))}
                 </ScrollView>
