@@ -113,7 +113,7 @@ export default StyleSheet.create({
     },
     drinkName: {
         fontFamily: 'VarelaRound',
-        backgroundColor: '#FDB813'
+        backgroundColor: '#ff8019'
     },
     infoBoxContainer: {
         marginTop: -75,

@@ -63,11 +63,13 @@ export default function Search() {
         return (
             <SafeAreaView style={styles.container}>
                 <TextInput
-                    label='Drink Name'
+                    label='Drink Name' 
                     value={ctName}
                     onChangeText={newName => setctName(newName)}
                     style={styles.drinkName}
                 />
+
+
                 <ScrollView>
 {/*                     {<Switch
                         trackColor={{ false: 'gray', true: 'tomato' }}
