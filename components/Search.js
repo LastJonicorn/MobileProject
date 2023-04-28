@@ -61,7 +61,7 @@ export default function Search() {
         />
     } else {
         return (
-            <SafeAreaView style={styles.container}>
+            <SafeAreaView style={styles.searchContainer}>
                 <TextInput
                     label='Drink Name' 
                     value={ctName}
@@ -85,13 +85,11 @@ export default function Search() {
                     /> */}
 
                     {ctData === null ? <Text style={styles.title}>Drink not found...</Text> : ctData.map((cocktail) => (
-                        <View key={cocktail.idDrink}>
-                            <View>
-                                <Text style={styles.title}>{cocktail.strDrink}</Text>
-                            </View>
+                        <View key={cocktail.idDrink} style={styles.search}>
                             <TouchableHighlight onPress={() => setcocktailInfo(cocktail)}>
-                                <Image style={styles.image} src={cocktail.strDrinkThumb} alt='#' />
+                                <Image style={styles.imageSearch} src={cocktail.strDrinkThumb} alt='#' />
                             </TouchableHighlight>
+                            <Text style={styles.searchText}>{cocktail.strDrink}</Text>
                         </View>
                     ))}
                 </ScrollView>

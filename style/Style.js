@@ -113,7 +113,7 @@ export default StyleSheet.create({
     },
     drinkName: {
         fontFamily: 'VarelaRound',
-        backgroundColor: '#ff8019'
+        backgroundColor: '#ffffff'
     },
     infoBoxContainer: {
         marginTop: -75,
@@ -155,7 +155,8 @@ export default StyleSheet.create({
     },
     favoriteDelete: {
         position:'absolute',
-        right:0
+        right:0,
+        color: '#808080'
     },
     buttonContainer: {
         backgroundColor: '#FFD77A',
@@ -164,5 +165,30 @@ export default StyleSheet.create({
     headerColor: {
         backgroundColor: '#ffffff',
         height: '100%',
-    }
+    },
+    searchContainer: {
+        backgroundColor: '#ffffff',
+    },
+    search: {
+        backgroundColor: '#ffffff',
+        flexDirection: 'row',
+        padding: 15,
+        marginLeft: 10,
+        marginRight: 10,
+        alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#d6d6d6',
+    },
+    imageSearch: {
+        width: '55%',
+        height: undefined,
+        aspectRatio: 1,
+        borderRadius: 200,
+    },
+    searchText: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginLeft: -50,
+    },
 });
