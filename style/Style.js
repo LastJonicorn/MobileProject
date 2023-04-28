@@ -119,6 +119,8 @@ export default StyleSheet.create({
         borderRadius: 5,
         borderWidth: 2,
         borderColor: '#ffffff',
+        overflow: 'hidden'
+        
     },
     infoBoxContainer: {
         marginTop: -75,
@@ -174,7 +176,7 @@ export default StyleSheet.create({
     searchContainer: {
         backgroundColor: '#ffffff',
     },
-    search: {
+    searchResultContainer: {
         backgroundColor: '#ffffff',
         flexDirection: 'row',
         padding: 15,
@@ -185,7 +187,7 @@ export default StyleSheet.create({
         borderBottomColor: '#d6d6d6',
     },
     imageSearch: {
-        width: '55%',
+        width: '27%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
@@ -194,7 +196,7 @@ export default StyleSheet.create({
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 20,
-        marginLeft: -50,
+        marginLeft: 20,
     },
     searchbarContainer: {
         backgroundColor: '#FFD77A',
