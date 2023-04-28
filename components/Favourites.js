@@ -75,16 +75,19 @@ export default Favorites = ({ props }) => {
             { text: 'OK', onPress: () => { clearAsyncStorage() } },
         ]);
 
-    const createShortcut = (text, limit) => {
-        if (text.length > limit) {
-            const part = text.slice(0, limit - 3);
-            if (part.match(CUTTING_EXPRESSION)) {
-                return part.replace(CUTTING_EXPRESSION, ' ...');
+        const createShortcut = (text, limit) => {
+            if (!text) {
+                return '';
             }
-            return part + '...';
-        }
-        return text;
-    };
+            if (text.length > limit) {
+                const part = text.slice(0, limit - 3);
+                if (part.match(CUTTING_EXPRESSION)) {
+                    return part.replace(CUTTING_EXPRESSION, ' ...');
+                }
+                return part + '...';
+            }
+            return text;
+        };
 
     const Component = ({ text, limit }) => {
         const shortcut = createShortcut(text, limit);
