@@ -62,12 +62,15 @@ export default function Search() {
     } else {
         return (
             <SafeAreaView style={styles.searchContainer}>
-                <TextInput
-                    label='Drink Name' 
-                    value={ctName}
-                    onChangeText={newName => setctName(newName)}
-                    style={styles.drinkName}
-                />
+                <View style={styles.searchbarContainer}>
+                    <Text style={styles.searchTitle}>What are you searching for today?</Text>
+                    <TextInput
+                        label='Drink Name' 
+                        value={ctName}
+                        onChangeText={newName => setctName(newName)}
+                        style={styles.drinkName}
+                    />
+                </View>
 
 
                 <ScrollView>
@@ -83,6 +86,8 @@ export default function Search() {
                         size={20}
                         onPress={(fetchCocktailHandler)}
                     /> */}
+
+                    <Text style={styles.searchResultsTitle}>Search results:</Text>
 
                     {ctData === null ? <Text style={styles.title}>Drink not found...</Text> : ctData.map((cocktail) => (
                         <View key={cocktail.idDrink} style={styles.search}>
