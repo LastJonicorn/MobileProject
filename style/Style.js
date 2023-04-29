@@ -107,10 +107,6 @@ export default StyleSheet.create({
         paddingVertical: 20,
         paddingHorizontal: 15,
     },      
-    homeImage: {
-        flex: 1,
-        resizeMode: 'cover',
-    },
     drinkName: {
         fontFamily: 'VarelaRound',
         backgroundColor: '#ffffff',
@@ -216,5 +212,49 @@ export default StyleSheet.create({
         marginTop: 20,
         marginLeft: 20,
         marginRight: 20
+    },
+    homePage: {
+        margin: 20
+    },
+    homeFavContainer: {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        padding: 20,
+        paddingBottom: 55,
+    },
+    homeImage: {
+        flex: 1,
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1,
+        borderRadius: 5,
+    },
+    homeFavimage: {
+        width: undefined,
+        height: 150,
+        aspectRatio: 1,
+        borderRadius: 5,
+    },
+    // Parent for favorite image & text in homepage
+    homeFav: {
+        alignItems: 'center',
+        marginBottom: 15,
+    },
+    homeFavTitle: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 17,
+        textAlign: 'center',
+        margin: 10,
+    },
+    homeFavTitleBox: {
+        borderTopWidth: 1,
+        borderTopColor: '#d6d6d6',
+        marginLeft: 50,
+        marginRight: 50,
+        marginTop: -20
     }
+    
 });
