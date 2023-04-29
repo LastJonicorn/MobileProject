@@ -19,22 +19,22 @@ export default function Home() {
             <View style={styles.homeFavContainer}>
                 <View style={styles.homeFav}>
                     <Image source={require('../pictures/red_cocktail.jpg')} style={styles.homeFavimage}></Image>
-                    <Text>DRINK NAME</Text>
+                    <Text style={styles.font}>DRINK NAME</Text>
                 </View>
 
                 <View style={styles.homeFav}>
                     <Image source={require('../pictures/red_cocktail.jpg')} style={styles.homeFavimage}></Image>
-                    <Text>DRINK NAME</Text>
+                    <Text style={styles.font}>DRINK NAME</Text>
                 </View>
 
                 <View style={styles.homeFav}>
                     <Image source={require('../pictures/red_cocktail.jpg')} style={styles.homeFavimage}></Image>
-                    <Text>DRINK NAME</Text>
+                    <Text style={styles.font}>DRINK NAME</Text>
                 </View>
 
                 <View style={styles.homeFav}>
                     <Image source={require('../pictures/red_cocktail.jpg')} style={styles.homeFavimage}></Image>
-                    <Text>DRINK NAME</Text>
+                    <Text style={styles.font}>DRINK NAME</Text>
                 </View>
             </View>
         </ScrollView>

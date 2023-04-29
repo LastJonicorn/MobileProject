@@ -8,9 +8,19 @@ export default StyleSheet.create({
         textAlign: 'center',
         marginBottom: 50,
     },
+    navBar: {
+        fontFamily: 'VarelaRound',
+    },
     underline: {
         flex: 1,
         textAlign: 'center',
+    },
+    loading: {
+        fontWeight: 'bold',
+        fontSize: 23,
+        textAlign: 'center',
+        margin: 10,
+        paddingTop: 250
     },
     flexContainer: {
         fontFamily: 'VarelaRound',
@@ -39,12 +49,6 @@ export default StyleSheet.create({
         height: undefined,
         aspectRatio: 1,
     },
-    imageFav: {
-        width: '27%',
-        height: undefined,
-        aspectRatio: 1,
-        borderRadius: 200,
-    },
     button: {
         fontFamily: 'VarelaRound',
         margin: 30,
@@ -69,13 +73,30 @@ export default StyleSheet.create({
         margin: 10,
         marginTop: 50,
     },
+    font: {
+        fontFamily: 'VarelaRound',
+        fontSize: 17, 
+    },
+
+    // COCKTAIL DETAILS
+    // Parent of title & ingredients
+    infoBoxContainer: {
+        marginTop: -75,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        borderColor: '#FDB813',
+        borderWidth: 1,
+        backgroundColor: 'rgba(255, 255, 255, 1)',
+    },
+    // Ingredients title
     ingredients: {
         fontSize: 20,
         fontFamily: 'VarelaRound',
         textAlign: 'center',
         marginBottom: 30,
         textDecorationLine:'underline',
-    },
+    },    
+    // Parent of ingredients
     ingredientsContainer: {
         borderTopColor: '#e9e9e9',
         borderTopWidth: 2,
@@ -86,49 +107,19 @@ export default StyleSheet.create({
         marginLeft: 25,
         marginRight: 25,
     },
-    loading: {
-        fontWeight: 'bold',
-        fontSize: 23,
-        textAlign: 'center',
-        margin: 10,
-        paddingTop: 250
-    },
-    homeContainer: {
-        fontFamily: 'VarelaRound',
-        fontSize: 25,
-        textAlign: 'center',
-        color: 'white',
-        marginTop: 300,
-        width: 350,
-        borderRadius: 10,
-        overflow: 'hidden',
-        backgroundColor: 'rgba(248, 131, 121, 0.6)',
-        alignSelf: 'center',
-        paddingVertical: 20,
-        paddingHorizontal: 15,
-    },      
-    drinkName: {
-        fontFamily: 'VarelaRound',
+
+    // FAVORITES PAGE
+    // Parent of the whole page
+    headerColor: {
         backgroundColor: '#ffffff',
-        marginTop: 10,
-        marginBottom: 20,
-        borderRadius: 5,
-        borderWidth: 2,
-        borderColor: '#ffffff',
-        overflow: 'hidden'
-        
+        height: '100%',
     },
-    infoBoxContainer: {
-        marginTop: -75,
-        borderTopLeftRadius: 25,
-        borderTopRightRadius: 25,
-        borderColor: '#FDB813',
-        borderWidth: 1,
-        backgroundColor: 'rgba(255, 255, 255, 1)',
+    // Parent of button
+    buttonContainer: {
+        backgroundColor: '#FFD77A',
+        paddingBottom: 20,
     },
-    navBar: {
-        fontFamily: 'VarelaRound',
-    },
+    // Parent of favorite drinks
     favoriteContainer: {
         backgroundColor: 'rgba(255, 255, 255, 1)',
         marginTop: -25,
@@ -141,6 +132,7 @@ export default StyleSheet.create({
         paddingBottom: 50,
         height: '100%'
     },
+    // Parent for a single drink
     favorite: {
         flexDirection: 'row',
         padding: 15,
@@ -150,28 +142,67 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#d6d6d6',
     },
+    // Image
+    imageFav: {
+        width: '27%',
+        height: undefined,
+        aspectRatio: 1,
+        borderRadius: 200,
+    },
+    // Drink title
     favoriteText: {
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 20,
         padding: 20,
     },
+    // Delete button
     favoriteDelete: {
         position:'absolute',
         right:0,
         color: '#808080'
     },
-    buttonContainer: {
-        backgroundColor: '#FFD77A',
-        paddingBottom: 20,
-    },
-    headerColor: {
-        backgroundColor: '#ffffff',
-        height: '100%',
-    },
+
+    // SEARCH PAGE
+    // Parent of the whole page
     searchContainer: {
         backgroundColor: '#ffffff',
     },
+    // Parent of the searchbar
+    searchbarContainer: {
+        backgroundColor: '#FFD77A',
+        padding: 20,
+        borderBottomLeftRadius: 17,
+        borderBottomRightRadius: 17,
+    },
+    // Searchbar
+    drinkName: {
+        fontFamily: 'VarelaRound',
+        backgroundColor: '#ffffff',
+        marginTop: 10,
+        marginBottom: 20,
+        borderRadius: 5,
+        borderWidth: 2,
+        borderColor: '#ffffff',
+        overflow: 'hidden'
+        
+    },
+    // 'What are you looking for today?' title
+    searchTitle: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 17,
+    },
+    // 'Search results:' title
+    searchResultsTitle: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 20,
+        marginTop: 20,
+        marginLeft: 20,
+        marginRight: 20
+    },
+    // Parent containing image & title of a drink
     searchResultContainer: {
         backgroundColor: '#ffffff',
         flexDirection: 'row',
@@ -182,40 +213,51 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
         borderBottomColor: '#d6d6d6',
     },
+    // Images
     imageSearch: {
         width: '27%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
     },
+    // Drink titles
     searchText: {
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 20,
         marginLeft: 20,
     },
-    searchbarContainer: {
-        backgroundColor: '#FFD77A',
-        padding: 20,
-        borderBottomLeftRadius: 17,
-        borderBottomRightRadius: 17,
-    },
-    searchTitle: {
-        fontFamily: 'VarelaRound',
-        fontWeight: 'bold',
-        fontSize: 17,
-    },
-    searchResultsTitle: {
-        fontFamily: 'VarelaRound',
-        fontWeight: 'bold',
-        fontSize: 20,
-        marginTop: 20,
-        marginLeft: 20,
-        marginRight: 20
-    },
+
+    // HOMEPAGE
+    // Parent for main image
     homePage: {
         margin: 20
     },
+    // Main image
+    homeImage: {
+        flex: 1,
+        width: '100%',
+        height: undefined,
+        aspectRatio: 1,
+        borderRadius: 5,
+    },
+    // Parent for 'Our favorite recipes' title
+    homeFavTitleBox: {
+        borderTopWidth: 1,
+        borderTopColor: '#d6d6d6',
+        marginLeft: 50,
+        marginRight: 50,
+        marginTop: -20
+    },
+    // 'Our favorite recipes' title
+    homeFavTitle: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 17,
+        textAlign: 'center',
+        margin: 10,
+    },
+    // Parent for all four favorite drinks
     homeFavContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -224,37 +266,17 @@ export default StyleSheet.create({
         padding: 20,
         paddingBottom: 55,
     },
-    homeImage: {
-        flex: 1,
-        width: '100%',
-        height: undefined,
-        aspectRatio: 1,
-        borderRadius: 5,
-    },
+    // Parent for favorite image & text in homepage
+    homeFav: {
+        alignItems: 'center',
+        marginBottom: 15,
+    },    
+    // Smaller images
     homeFavimage: {
         width: undefined,
         height: 150,
         aspectRatio: 1,
         borderRadius: 5,
-    },
-    // Parent for favorite image & text in homepage
-    homeFav: {
-        alignItems: 'center',
-        marginBottom: 15,
-    },
-    homeFavTitle: {
-        fontFamily: 'VarelaRound',
-        fontWeight: 'bold',
-        fontSize: 17,
-        textAlign: 'center',
-        margin: 10,
-    },
-    homeFavTitleBox: {
-        borderTopWidth: 1,
-        borderTopColor: '#d6d6d6',
-        marginLeft: 50,
-        marginRight: 50,
-        marginTop: -20
-    }
-    
+        marginBottom: 5,
+    },    
 });
