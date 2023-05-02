@@ -66,7 +66,10 @@ export default function Search() {
             <SafeAreaView>
                 <ScrollView>
                 <View style={styles.homePage}>
-                    <Image source={require('../pictures/red_cocktail.jpg')} style={styles.homeImage}></Image>
+                    <Image source={require('../pictures/Cocktail2a.png')} style={styles.homeImage}></Image>
+                </View>
+                <View>
+                    <Text style={styles.homeFavTitle}>What would you like to drink today?</Text>
                 </View>
                     <Text style={styles.homeFavTitle}>Our favorite drinks</Text>
                     <View style={styles.homeFavContainer}>

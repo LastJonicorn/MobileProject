@@ -236,10 +236,11 @@ export default StyleSheet.create({
     // Main image
     homeImage: {
         flex: 1,
-        width: '100%',
+        width: '70%',
         height: undefined,
-        aspectRatio: 1,
+        aspectRatio: 0.9,
         borderRadius: 5,
+        alignSelf:'center'
     },
     // Parent for 'Our favorite recipes' title
     homeFavTitleBox: {
