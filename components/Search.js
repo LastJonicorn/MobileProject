@@ -14,13 +14,8 @@ export default function Search() {
     const [loading, setLoading] = useState(false);
     const [ctData, setctData] = useState([])
     const [ctName, setctName] = useState('')
-    const [ingName, setIngName] = useState('')
     const [cocktailInfo, setcocktailInfo] = useState(null)
-    const [color, setColor] = useState(true);
-    const [favorite, setFavorite] = useState([]);
-    const [newFav, setnewFav] = useState([])
     const [isEnabled, setIsEnabled] = useState(false)
-    const [url, setUrl] = useState('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=')
 
     const URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + ctName;
     const URL2 = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=vodka';
@@ -30,17 +25,10 @@ export default function Search() {
 
     useEffect(() => {
         console.log(ctData)
-        //    if(isEnabled === false) {
         axios.get(URL)
             .then((res) => {
                 setctData(res.data.drinks)
             }).catch(e => console.log(e))
-        // } else {
-        //   axios.get(URL2)
-        //  .then((res) => {
-        //    setctData(res.data.drinks)
-        //   console.log(ctData)
-        //}) .catch(e => console.log(e))
     }, [ctName])
 
     if (loading) {
@@ -74,21 +62,7 @@ export default function Search() {
 
 
                 <ScrollView>
-{/*                     {<Switch
-                        trackColor={{ false: 'gray', true: 'tomato' }}
-                        thumbncolor={isEnabled ? 'tomato' : 'blue'}
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
-                    />} */}
-                    {/* Painalluksella haku jos tarvitsee
-                        <IconButton
-                        icon="camera"
-                        size={20}
-                        onPress={(fetchCocktailHandler)}
-                    /> */}
-
                     <Text style={styles.searchResultsTitle}>Search results:</Text>
-
                     {ctData === null ? <Text style={styles.title}>Drink not found...</Text> : ctData.map((cocktail) => (
                         <View key={cocktail.idDrink}>
                             <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" onPress={() => setcocktailInfo(cocktail)}>

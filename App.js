@@ -29,6 +29,7 @@ export default function App() {
           tabBarActiveBackgroundColor:'#FDB813',
           tabBarActiveTintColor:'black',
           tabBarInactiveTintColor:'black',
+          tabBarIcon: 'sdjkfhkjshdf'
         }}>
         <Tab.Screen 
           name='Home' component={Home} options={{

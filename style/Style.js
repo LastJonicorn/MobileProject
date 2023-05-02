@@ -167,6 +167,7 @@ export default StyleSheet.create({
     // Parent of the whole page
     searchContainer: {
         backgroundColor: '#ffffff',
+        marginBottom: 90
     },
     // Parent of the searchbar
     searchbarContainer: {
@@ -257,6 +258,14 @@ export default StyleSheet.create({
         fontSize: 17,
         textAlign: 'center',
         margin: 10,
+    },
+    homeText: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 20,
+        textAlign: 'center',
+        margin: 10,
+        marginBottom: 50
     },
     // Parent for all four favorite drinks
     homeFavContainer: {

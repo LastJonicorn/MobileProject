@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Text, View, Pressable, Image, ScrollView, SafeAreaView } from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, SafeAreaView, ImageBackground, TouchableHighlight } from 'react-native';
 import axios from 'axios';
 import styles from '../style/Style';
 import CocktailDetails from './CocktailDetails';
@@ -63,43 +63,45 @@ export default function Search() {
         />
     } else {
         return (
-            <SafeAreaView>
-                <ScrollView>
-                <View style={styles.homePage}>
-                    <Image source={require('../pictures/Cocktail2a.png')} style={styles.homeImage}></Image>
-                </View>
-                <View>
-                    <Text style={styles.homeFavTitle}>What would you like to drink today?</Text>
-                </View>
-                    <Text style={styles.homeFavTitle}>Our favorite drinks</Text>
-                    <View style={styles.homeFavContainer}>
-                    {ctData1.map((cocktail, i) => ( i < 1 &&
-                    <Pressable style={styles.homeFav} onPress={() => setcocktailInfo(cocktail)}>
-                        <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                        <Text style={styles.font}>Old Fashioned</Text>
-                    </Pressable>
-                    ))}
-                    {ctData2.map((cocktail, i) => ( i < 1 &&
-                    <Pressable style={styles.homeFav} onPress={() => setcocktailInfo(cocktail)}>
-                        <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                        <Text style={styles.font}>DRINK NAME</Text>
-                    </Pressable>
-                    ))}
-                    {ctData3.map((cocktail, i) => ( i < 1 &&
-                    <Pressable style={styles.homeFav} onPress={() => setcocktailInfo(cocktail)}>
-                        <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                        <Text style={styles.font}>DRINK NAME</Text>
-                    </Pressable>
-                    ))}
-                    {ctData4.map((cocktail, i) => ( i < 1 &&
-                    <Pressable style={styles.homeFav} onPress={() => setcocktailInfo(cocktail)}>
-                        <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                        <Text style={styles.font}>DRINK NAME</Text>
-                    </Pressable>
-                    ))}
-                </View>
-                </ScrollView>
-            </SafeAreaView>
+            <ImageBackground source={require('../pictures/Zombie3.png')}>
+                <SafeAreaView>
+                    <ScrollView>
+                        <View style={styles.homePage}>
+                            <Image source={require('../pictures/Cocktail2a.png')} style={styles.homeImage}></Image>
+                        </View>
+                        <View>
+                            <Text style={styles.homeText}>What would you like to drink today?</Text>
+                        </View>
+                        <Text style={styles.homeFavTitle}>Our favorite drinks</Text>
+                        <View style={styles.homeFavContainer}>
+                        {ctData1.map((cocktail, i) => ( i < 1 &&
+                        <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
+                            <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
+                            <Text style={styles.font}>Old Fashioned</Text>
+                        </Pressable>
+                        ))}
+                        {ctData2.map((cocktail, i) => ( i < 1 &&
+                        <Pressable style={styles.homeFav}  key={i} onPress={() => setcocktailInfo(cocktail)}>
+                            <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
+                            <Text style={styles.font}>DRINK NAME</Text>
+                        </Pressable>
+                        ))}
+                        {ctData3.map((cocktail, i) => ( i < 1 &&
+                        <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
+                            <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
+                            <Text style={styles.font}>DRINK NAME</Text>
+                        </Pressable>
+                        ))}
+                        {ctData4.map((cocktail, i) => ( i < 1 &&
+                        <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
+                            <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
+                            <Text style={styles.font}>DRINK NAME</Text>
+                        </Pressable>
+                        ))}
+                        </View>
+                    </ScrollView>
+                </SafeAreaView>
+            </ImageBackground>
         )
     }
 }
