@@ -67,8 +67,8 @@ export default function Search() {
                         <View key={cocktail.idDrink}>
                             <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" onPress={() => setcocktailInfo(cocktail)}>
                                 <View style={styles.searchResultContainer}>
-                                    <Text style={styles.searchText}>{cocktail.strDrink}</Text>
                                     <Image style={styles.imageSearch} src={cocktail.strDrinkThumb} alt='#' />
+                                    <Text style={styles.searchText}>{cocktail.strDrink}</Text>
                                 </View>
                             </TouchableHighlight>
                         </View>

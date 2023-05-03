@@ -212,14 +212,17 @@ export default StyleSheet.create({
     // Parent containing image & title of a drink
     searchResultContainer: {
         backgroundColor: '#ffffff',
+        flexDirection: 'row',
         padding: 15,
+        marginLeft: 10,
+        marginRight: 10,
         alignItems: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#d6d6d6',
     },
     // Images
     imageSearch: {
-        width: '70%',
+        width: '45%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
@@ -228,8 +231,8 @@ export default StyleSheet.create({
     searchText: {
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
-        fontSize: 20,
-        paddingBottom: 20
+        fontSize: 25,
+        marginLeft: 20,
     },
 
     // HOMEPAGE
