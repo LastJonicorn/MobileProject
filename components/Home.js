@@ -13,7 +13,7 @@ export default function Search() {
     const [cocktailInfo, setcocktailInfo] = useState(null)
 
     const URL1 = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Old Fashioned';
-    const URL2 = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Balmoral'; //Lisätkää oma juoma tänne
+    const URL2 = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Pineapple Paloma'; //Lisätkää oma juoma tänne
     const URL3 = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Gin Fizz'; //Lisätkää oma juoma tänne
     const URL4 = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Avalon'; //Lisätkää oma juoma tänne
 
@@ -83,7 +83,7 @@ export default function Search() {
                         {ctData2.map((cocktail, i) => ( i < 1 &&
                         <Pressable style={styles.homeFav}  key={i} onPress={() => setcocktailInfo(cocktail)}>
                             <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                            <Text style={styles.font}>Balmoral</Text>
+                            <Text style={styles.font}>Pineapple Paloma</Text>
                         </Pressable>
                         ))}
                         {ctData3.map((cocktail, i) => ( i < 1 &&

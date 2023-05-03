@@ -39,7 +39,7 @@ export default StyleSheet.create({
     title: {
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
-        fontSize: 23,
+        fontSize: 20,
         textAlign: 'center',
         margin: 20,    
     },
@@ -173,7 +173,7 @@ export default StyleSheet.create({
     // Parent of the whole page
     searchContainer: {
         backgroundColor: '#ffffff',
-        marginBottom: 90
+        marginBottom: 200
     },
     // Parent of the searchbar
     searchbarContainer: {
@@ -212,17 +212,14 @@ export default StyleSheet.create({
     // Parent containing image & title of a drink
     searchResultContainer: {
         backgroundColor: '#ffffff',
-        flexDirection: 'row',
         padding: 15,
-        marginLeft: 10,
-        marginRight: 10,
         alignItems: 'center',
         borderBottomWidth: 1,
         borderBottomColor: '#d6d6d6',
     },
     // Images
     imageSearch: {
-        width: '27%',
+        width: '70%',
         height: undefined,
         aspectRatio: 1,
         borderRadius: 200,
@@ -232,7 +229,7 @@ export default StyleSheet.create({
         fontFamily: 'VarelaRound',
         fontWeight: 'bold',
         fontSize: 20,
-        marginLeft: 20,
+        paddingBottom: 20
     },
 
     // HOMEPAGE

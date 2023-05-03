@@ -10,7 +10,6 @@ import Home from './components/Home';
 import { useFonts } from 'expo-font';
 import styles from './style/Style';
 
-
 const Tab = createBottomTabNavigator();
 
 export default function App() {
