@@ -65,8 +65,18 @@ export default Favorites = ({ props }) => {
         NativeModules.DevSettings.reload();
     }
 
-    const cleartFavAlert = () =>
-        Alert.alert('Clear favorites?', '', [
+    const cleartFavAlert = (i) =>
+        Alert.alert('Remove favorite?', '', [
+            {
+                text: 'Cancel',
+                onPress: () => console.log('Cancel'),
+                style: 'cancel',
+            },
+            { text: 'OK', onPress: () => { removeFave(i) } },
+        ]);
+
+        const clearAllFavAlert = () =>
+        Alert.alert('Remove All Favorites?', '', [
             {
                 text: 'Cancel',
                 onPress: () => console.log('Cancel'),
@@ -119,7 +129,7 @@ export default Favorites = ({ props }) => {
                                 styles.button,
                                 pressed && { opacity: .7 }
                             ]}
-                            onPress={cleartFavAlert}
+                            onPress={clearAllFavAlert}
                         >
                             <Text style={styles.buttonText}>Clear favorites</Text>
                         </Pressable>
@@ -134,7 +144,7 @@ export default Favorites = ({ props }) => {
                                     </Text>
                                     <MaterialCommunityIcons
                                         style={styles.favoriteDelete}
-                                        onPress={() => removeFave(i)}
+                                        onPress={() => cleartFavAlert(i)}
                                         name={"delete"}
                                         size={40}
                                     >
