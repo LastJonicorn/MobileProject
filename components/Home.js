@@ -83,19 +83,19 @@ export default function Search() {
                         {ctData2.map((cocktail, i) => ( i < 1 &&
                         <Pressable style={styles.homeFav}  key={i} onPress={() => setcocktailInfo(cocktail)}>
                             <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                            <Text style={styles.font}>DRINK NAME</Text>
+                            <Text style={styles.font}>Balmoral</Text>
                         </Pressable>
                         ))}
                         {ctData3.map((cocktail, i) => ( i < 1 &&
                         <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
                             <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                            <Text style={styles.font}>DRINK NAME</Text>
+                            <Text style={styles.font}>Gin Fizz</Text>
                         </Pressable>
                         ))}
                         {ctData4.map((cocktail, i) => ( i < 1 &&
                         <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
                             <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
-                            <Text style={styles.font}>DRINK NAME</Text>
+                            <Text style={styles.font}>Avalon</Text>
                         </Pressable>
                         ))}
                         </View>
