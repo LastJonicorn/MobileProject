@@ -240,12 +240,13 @@ export default StyleSheet.create({
     // Main image
     homeImage: {
         flex: 1,
-        width: '70%',
+        width: '100%',
         height: undefined,
-        aspectRatio: 0.9,
+        aspectRatio: 1,
         borderRadius: 5,
         alignSelf:'center'
     },
+    // Logo
     headerImage: {
         flex: 1,
         width: '70%',
@@ -272,14 +273,6 @@ export default StyleSheet.create({
         textAlign: 'center',
         margin: 10,
     },
-    homeText: {
-        fontFamily: 'VarelaRound',
-        fontWeight: 'bold',
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-        marginBottom: 50
-    },
     // Parent for all four favorite drinks
     homeFavContainer: {
         flex: 1,
@@ -287,7 +280,7 @@ export default StyleSheet.create({
         flexWrap: 'wrap',
         justifyContent: 'space-between',
         padding: 20,
-        paddingBottom: 55,
+        paddingBottom: 50,
     },
     // Parent for favorite image & text in homepage
     homeFav: {

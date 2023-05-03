@@ -63,17 +63,16 @@ export default function Search() {
         />
     } else {
         return (
-            <ImageBackground source={require('../pictures/Zombie3.png')}>
-                <SafeAreaView>
-                    <ScrollView>
-                        <View style={styles.homePage}>
-                            <Image source={require('../pictures/Cocktail2a.png')} style={styles.homeImage}></Image>
-                        </View>
-                        <View>
-                            <Text style={styles.homeText}>What would you like to drink today?</Text>
-                        </View>
+            <SafeAreaView>
+                <ScrollView style={styles.headerColor}>
+                    <View style={styles.homePage}>
+                        <Image source={require('../pictures/Zombie.jpg')} style={styles.homeImage}></Image>
+                        <Text style={styles.title}>What would you like to drink today?</Text>
+                    </View>
+                    <View style={styles.homeFavTitleBox}>
                         <Text style={styles.homeFavTitle}>Our favorite drinks</Text>
-                        <View style={styles.homeFavContainer}>
+                    </View>
+                    <View style={styles.homeFavContainer}>
                         {ctData1.map((cocktail, i) => ( i < 1 &&
                         <Pressable style={styles.homeFav} key={i} onPress={() => setcocktailInfo(cocktail)}>
                             <Image src={cocktail.strDrinkThumb} style={styles.homeFavimage}></Image>
@@ -98,10 +97,9 @@ export default function Search() {
                             <Text style={styles.font}>Avalon</Text>
                         </Pressable>
                         ))}
-                        </View>
-                    </ScrollView>
-                </SafeAreaView>
-            </ImageBackground>
+                    </View>
+                </ScrollView>
+            </SafeAreaView>
         )
     }
 }
