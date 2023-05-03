@@ -43,6 +43,12 @@ export default StyleSheet.create({
         textAlign: 'center',
         margin: 20,    
     },
+    headerTitle: {
+        fontFamily: 'VarelaRound',
+        fontWeight: 'bold',
+        fontSize: 23,
+        textAlign: 'center',
+    },
     image: {
         flex: 1,
         width: '100%',
@@ -232,7 +238,7 @@ export default StyleSheet.create({
     // HOMEPAGE
     // Parent for main image
     homePage: {
-        margin: 20
+        margin: 30,
     },
     // Main image
     homeImage: {
@@ -242,6 +248,16 @@ export default StyleSheet.create({
         aspectRatio: 0.9,
         borderRadius: 5,
         alignSelf:'center'
+    },
+    headerImage: {
+        flex: 1,
+        width: '70%',
+        height: undefined,
+        aspectRatio: 0.9,
+        borderRadius: 5,
+        alignSelf:'center',
+        marginLeft: 10,
+        marginBottom: 6
     },
     // Parent for 'Our favorite recipes' title
     homeFavTitleBox: {

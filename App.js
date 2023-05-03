@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from 'react-native';
+import { Text, View, Pressable, Image, ScrollView, SafeAreaView, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -8,6 +8,7 @@ import Search from './components/Search';
 import Favourites from './components/Favourites';
 import Home from './components/Home';
 import { useFonts } from 'expo-font';
+import styles from './style/Style';
 
 
 const Tab = createBottomTabNavigator();
@@ -29,11 +30,12 @@ export default function App() {
           tabBarActiveBackgroundColor:'#FDB813',
           tabBarActiveTintColor:'black',
           tabBarInactiveTintColor:'black',
-          tabBarIcon: 'sdjkfhkjshdf'
         }}>
         <Tab.Screen 
           name='Home' component={Home} options={{
           tabBarLabel: 'Home',
+          headerTitle: () => <Text style={styles.headerTitle}>Home</Text>,
+          headerLeft: () => <Image style={styles.headerImage} source={require('./pictures/Cocktail2a.png')}/>,
           headerStyle: {
             backgroundColor: '#FFD77A'
           },
@@ -44,6 +46,8 @@ export default function App() {
         <Tab.Screen name='Search' component={Search}
           options={{
           tabBarLabel: 'Search',
+          headerTitle: () => <Text style={styles.headerTitle}>Search</Text>,
+          headerLeft: () => <Image style={styles.headerImage} source={require('./pictures/Cocktail2a.png')}/>,
           headerStyle: {
             backgroundColor: '#FFD77A'
           },
@@ -54,6 +58,8 @@ export default function App() {
         <Tab.Screen name='Random' component={Cocktails}
           options={{
           tabBarLabel: 'Random cocktail',
+          headerTitle: () => <Text style={styles.headerTitle}>Random</Text>,
+          headerLeft: () => <Image style={styles.headerImage} source={require('./pictures/Cocktail2a.png')}/>,
           headerStyle: {
             backgroundColor: '#FFD77A'
           },
@@ -64,6 +70,8 @@ export default function App() {
         <Tab.Screen name='Favourites' component={Favourites}          
           options={{
           tabBarLabel: 'Favorites',
+          headerTitle: () => <Text style={styles.headerTitle}>Favorites</Text>,
+          headerLeft: () => <Image style={styles.headerImage} source={require('./pictures/Cocktail2a.png')}/>,
           headerStyle: {
             backgroundColor: '#FFD77A'
           },
